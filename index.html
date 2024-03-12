@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>全屏显示图片</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .image-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100vmin;
+      /* width: 100vmin; */
+    }
+
+    .previous-button,
+    .next-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      padding: 10px 20px;
+      border: none;
+     
+      cursor: pointer;
+    }
+
+    .previous-button {
+      left: 10px;
+    }
+
+    .next-button {
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="image-container">
+    <img class="image" id="fullscreen-image" src="electroboy.jpg" alt="Full Screen Image">
+  </div>
+  <!-- <button class="previous-button" id="previous-button">前一张</button>
+  <button class="next-button" id="next-button">后一张</button> -->
+  <!-- <img src="./icon/prev.png"  alt="" class="previous-button" id="previous-button">
+  <img src="./icon/next.png" class="next-button" id="next-button"> -->
+
+  <script>
+    var imageElement = document.getElementById("fullscreen-image");
+    var scale = 1;
+    var isDragging = false;
+    var startMouseX, startMouseY, startImageX, startImageY;
+    var images = [
+   
+      "electroboy.jpg"
+    ];
+    var currentImageIndex = 0;
+
+    imageElement.src = images[currentImageIndex];
+
+    // imageElement.addEventListener('wheel', function(event) {
+    //   event.preventDefault();
+    //   var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+    //   scale += delta * 0.01;
+    //   scale = Math.max(0.01, scale);
+    //   imageElement.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+    // });
+
+    imageElement.addEventListener('wheel', function(event) {
+  event.preventDefault(); // 阻止默认滚轮事件
+
+  // 获取滚动量，将其限制在 -1 和 1 之间
+  var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+
+  // 获取当前的缩放比例值
+  var transform = imageElement.style.transform;
+  var scaleMatch = transform.match(/scale\((.*?)\)/);
+  var scale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+
+  // 根据缩放比例选择增量倍数
+  if (scale < 0.2) {
+    delta *= 0.01; // 缩放比例小于 0.2，增量乘以 0.01
+  } else {
+    delta *= 0.05; // 缩放比例大于等于 0.2，增量乘以 0.05
+  }
+
+  // 更新缩放比例值
+  scale += delta;
+  scale = Math.max(0.01, scale); // 确保缩放比例值在 0.01 和无穷大之间
+
+  // 应用新的变换样式到图像元素上
+  imageElement.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+});
+
+    imageElement.addEventListener('mousedown', function (event) {
+      event.preventDefault();
+      if (event.button === 0) {
+        isDragging = true;
+        startMouseX = event.clientX;
+        startMouseY = event.clientY;
+        startImageX = parseInt(window.getComputedStyle(imageElement).getPropertyValue('left'));
+        startImageY = parseInt(window.getComputedStyle(imageElement).getPropertyValue('top'));
+      }
+    });
+
+    imageElement.addEventListener('mousemove', function (event) {
+      event.preventDefault();
+      if (isDragging) {
+        var deltaX = event.clientX - startMouseX;
+        var deltaY = event.clientY - startMouseY;
+        imageElement.style.left = (startImageX + deltaX) + 'px';
+        imageElement.style.top = (startImageY + deltaY) + 'px';
+      }
+    });
+
+    imageElement.addEventListener('mouseup', function (event) {
+      event.preventDefault();
+      isDragging = false;
+    });
+
+    imageElement.addEventListener('mouseleave', function (event) {
+      event.preventDefault();
+      isDragging = false;
+    });
+
+    imageElement.addEventListener('mousedown', function (event) {
+      event.preventDefault();
+      if (event.button === 0) {
+        isDragging = true;
+        var offsetX = event.clientX - parseInt(window.getComputedStyle(imageElement).getPropertyValue('left'));
+        var offsetY = event.clientY - parseInt(window.getComputedStyle(imageElement).getPropertyValue('top'));
+
+        document.addEventListener('mousemove', moveImage);
+        document.addEventListener('mouseup', stopDragging);
+
+        function moveImage(event) {
+          var left = event.clientX - offsetX;
+          var top = event.clientY - offsetY;
+          imageElement.style.left = left + 'px';
+          imageElement.style.top = top + 'px';
+        }
+
+        function stopDragging(event) {
+          isDragging = false;
+          document.removeEventListener('mousemove', moveImage);
+          document.removeEventListener('mouseup', stopDragging);
+        }
+      }
+    });
+
+    var previousButton = document.getElementById('previous-button');
+    var nextButton = document.getElementById('next-button');
+
+    previousButton.addEventListener('click', function () {
+      currentImageIndex--;
+      if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      }
+      imageElement.src = images[currentImageIndex];
+    });
+
+    nextButton.addEventListener('click', function () {
+      currentImageIndex++;
+      if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      }
+      imageElement.src = images[currentImageIndex];
+    });
+  </script>
+</body>
+
+</html>
