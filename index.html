@@ -1,192 +1,517 @@
-<!DOCTYPE html>
+<!-- @刘洪材编写 -->
+<!-- 2024年3月14日 -->
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <title>电击小子-electroboy</title>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+     content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="cache-control" content="no-siteapp">
+    <link rel="shortcut icon" href="./image/djxzlogo.png">
+    <title>电击小子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    .image-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
+        body{
+            padding: 95px 6%;
+            background: linear-gradient(to right top, #ff1493, #2980b9);
+        }
 
-    .image {
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100vmin;
-      /* width: 100vmin; */
-    }
+        h6 {
+            position: relative;
+            z-index: -1;
+            top: calc(100% - 60px);
+            color: #555555ed;
+            position: fixed;
+            bottom: 5%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            display: flex;
+        }
 
-    .previous-button,
-    .next-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      padding: 10px 20px;
-      border: none;
-     
-      cursor: pointer;
-    }
+        .profile {
+            padding: 20px 30px;
+            height: 230px;
+            background: #FFFFFF;
+            text-align: center;
+            flex: 1 1 400px;
+            position: sticky;
+            top: 20px;
+            border-right: 2px solid #333333;
+        }
 
-    .previous-button {
-      left: 10px;
-    }
+        .profile h3 {
+            font-size: 20px;
+        }
 
-    .next-button {
-      right: 10px;
-    }
-  </style>
+        .profile p {
+            color: #2980b9;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .btn {
+            padding: 7px 20px;
+            border-radius: 5px;
+            background: #2980b9;
+            color: #FFFFFF;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #333333;
+        }
+
+        .information {
+            padding: 20px 30px;
+            flex: 1 1 1000px;
+            background: #FFFFFF; 
+        }
+
+        .title {
+            font-size: 25px;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 17px;
+            line-height: 2;
+            padding-bottom: 10px;
+            color: #777777;
+        }
+
+        .about .box-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .about .box-container .box {
+            flex: 1 1 250px;
+        }
+
+        .about .box-container .box h3 {
+            font-size: 15px;
+            padding: 10px 0;
+            color: #333333;
+        }
+
+        .about .box-container .box h3 span {
+            color: #777777;
+        }
+
+        .services {
+            padding: 20px 0;
+        }
+
+        .imgbox-container {
+            display: flex;
+        }
+
+        .imgbox-container .box {
+            flex: 1 1 17px;
+            text-align: center;
+            border-radius: 5px;
+            padding: 20px;
+            background: #eeeeee;
+            margin-right: 12px;
+        }
+
+        .imgbox-container .box img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .imgbox-container .box h3 {
+            font-size: 15px;
+            color: #777777;
+        }
+
+        .skills .box-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills .box-container .box {
+            flex: 1 1 300px;
+        }
+
+        .skills .box-container .box:last-child {
+            margin-left: 12px;
+        }
+
+        .progress h3 {
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            color: #333333;
+            font-size: 15px;
+        }
+
+        .progress h3 span {
+            color: #777777;
+        }
+
+        .bar {
+            overflow: hidden;
+            border-radius: 50px;
+            height: 10px;
+            background: #eeeeee;
+        }
+
+        .bar span {
+            background: #2980b9;
+            height: 100%;
+            display: block;
+            border-radius: 50px;
+        }
+
+        .first {
+            width: 40%;
+        }
+
+        .second {
+            width: 40%;
+        }
+
+        .third {
+            width: 20%;
+        }
+
+        .fourth {
+            width: 70%;
+        }
+
+        .fifth {
+            width: 90%;
+        }
+
+        .sixth {
+            width: 75%;
+        }
+
+        .experience {
+            margin: 20px 0;
+        }
+
+        .experience .box-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .experience .box-container .box {
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1 1 350px;
+            background: #eeeeee;
+        }
+
+        .experience .box-container .box span {
+            color: #2980b9;
+            font-size: 15px;
+        }
+
+        .experience .box-container .box h3 {
+            color: #333333;
+            font-size: 17px;
+            padding: 5px 0;
+        }
+
+        .experience .box-container .box p {
+            color: #777777;
+            line-height: 2;
+            font-size: 13px;
+        }
+
+        .contact .box-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact .box-container .box {
+            flex: 1 1 200px;
+            display: flex;
+        }
+
+        .contact .box-container .box i {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            border-radius: 50%;
+            background: #2980b9;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .contact .box-container .box h3 {
+            font-size: 17px;
+            color: #333333;
+            padding-bottom: 5px;
+        }
+
+        .contact .box-container .box p {
+            font-size: 14px;
+            color: #777777;
+            line-height: 2;
+        }
+
+        .info {
+            padding-left: 10px;
+        }
+    </style>
+      <style>
+        /* 弹窗样式 */
+        .modal {
+          display: none; /* 默认隐藏 */
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 20px;
+          border: 1px solid #000;
+          z-index: 1000;
+        }
+      </style>
+
 </head>
 
 <body>
-  <div class="image-container">
-    <img class="image" id="fullscreen-image" src="electroboy.jpg" alt="Full Screen Image">
-  </div>
-  <!-- <button class="previous-button" id="previous-button">前一张</button>
-  <button class="next-button" id="next-button">后一张</button> -->
-  <!-- <img src="./icon/prev.png"  alt="" class="previous-button" id="previous-button">
-  <img src="./icon/next.png" class="next-button" id="next-button"> -->
-
-  <script>
-    var imageElement = document.getElementById("fullscreen-image");
-    var scale = 1;
-    var isDragging = false;
-    var startMouseX, startMouseY, startImageX, startImageY;
-    var images = [
+    <img src="./image/djxz.gif" alt="" id="movingImage" style="position: absolute; transform: scaleX(-1); top: 0; left: 0; width: 100px; height: 100px; z-index: -1;">
    
-      "electroboy.jpg"
-    ];
-    var currentImageIndex = 0;
+    <div class="container">
 
-    imageElement.src = images[currentImageIndex];
+        <div class="information">
 
-    // imageElement.addEventListener('wheel', function(event) {
-    //   event.preventDefault();
-    //   var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
-    //   scale += delta * 0.01;
-    //   scale = Math.max(0.01, scale);
-    //   imageElement.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
-    // });
+            <div class="about">
+                <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;" onclick="playAudio()"></h3>
+                <audio id="audioPlayer" src="1.wav"></audio>
+                <p>电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。</p>
+                <!-- <p>不仅如此，我还能熟练使用前端语言独立制作电商网站，招聘网站等等，这个简历也是我用HTML和CSS完成的哦。</p> -->
+                <div class="box-container">
+                    <div class="box">
+                        <h3><span>年龄 : </span>10</h3>
+                        <h3><span>地址 : </span>中国</h3>
+                        <!-- <h3><span>电话 : </span>1234567890</h3>
+                        <h3><span>邮箱 : </span>Algo@Yequ.Com</h3> -->
+                    </div>
+                    <div class="box">
+                        <h3><span>姓名 : </span>电击小子</h3>
+                        <h3><span>语言 : </span>中文, English</h3>
+                        <!-- <h3><span>工龄 : </span>2 年</h3>
+                        <h3><span>现状 : </span>随时到岗</h3> -->
+                    </div>
+                </div>
+            </div>
 
-    imageElement.addEventListener('wheel', function(event) {
-  event.preventDefault(); // 阻止默认滚轮事件
+            <div class="services">
+                <h3 class="title">电击小子相关网页</h3>
+                <div class="imgbox-container">
+                    <div class="box">
+                        <a href="https://www.electroboy.cn/embassy">
+                            <img src="./image/fix.png" alt="">  
+                        </a>
+                        <h3>embassy</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598216656_89057/icon-2.png" alt="">
+                        <h3>CSS 3</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598219832_4197/icon-3.png" alt="">
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="box">
+                        <a href="https://qq.electroboy.cn/" alt="">
+                            <img src="./image/djxzqq.png" alt="">  
+                        </a>
+                            <h3>QQ群</h3>
+                    </div>
+                    <!-- <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598226940_86454/icon-5.png" alt="">
+                        <h3>SQL</h3>
+                    </div>
+                    <div class="box">
+                        <img src="http://nocturne.bczcdn.com/file/1645598230253_49248/icon-6.png" alt="">
+                        <h3>C++</h3>
+                    </div> -->
+                </div>
+            </div>
 
-  // 获取滚动量，将其限制在 -1 和 1 之间
-  var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+            <div class="skills">
+                <h3 class="title">开发使用了</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="progress">
+                            <h3>Html <span>40%</span></h3>
+                            <div class="bar"><span class="first"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Css <span>40%</span></h3>
+                            <div class="bar"><span class="second"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Javascript <span>20%</span></h3>
+                            <div class="bar"><span class="third"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Photoshop <span>70%</span></h3>
+                            <div class="bar"><span class="fourth"></span></div>
+                        </div>
+                    </div>
+                    <!-- <div class="box">
+                        <div class="progress">
+                            <h3>Web Design <span>90%</span></h3>
+                            <div class="bar"><span class="fifth"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Graphic Design <span>75%</span></h3>
+                            <div class="bar"><span class="sixth"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>App Design <span>65%</span></h3>
+                            <div class="bar"><span class="third"></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Digital Marketing <span>70%</span></h3>
+                            <div class="bar"><span class="fourth"></span></div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
 
-  // 获取当前的缩放比例值
-  var transform = imageElement.style.transform;
-  var scaleMatch = transform.match(/scale\((.*?)\)/);
-  var scale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+            <div class="experience">
+                <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;" onclick="playAudio2()"></h3>
+                <audio id="audioPlayer2" src="2.wav"></audio>
 
-  // 根据缩放比例选择增量倍数
-  if (scale < 0.2) {
-    delta *= 0.01; // 缩放比例小于 0.2，增量乘以 0.01
-  } else {
-    delta *= 0.05; // 缩放比例大于等于 0.2，增量乘以 0.05
-  }
+                <div class="box-container">
+                    <div class="box">
+                        <span>2024年3月13日</span>
+                        <h3>搭建完成</h3>
+                        <p>本页面搭建于GitHub</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
 
-  // 更新缩放比例值
-  scale += delta;
-  scale = Math.max(0.01, scale); // 确保缩放比例值在 0.01 和无穷大之间
+            <div class="contact">
+                <h3 class="title">联系我们</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <!-- <i class="fas fa-map"img src="./1.png" alt=""></i> -->
+                        <div class="fas fa-map">
+                            <img src="./image/djxzqq.png" alt="" width="50" height="50" style="border-radius: 50%;">
+                          </div>
+                    
+                        <div class="info">
+                            <h3>QQ群</h3>
+                            <p>364310663</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-phone"></i>
+                        <div class="info">
+                            <h3>qq</h3>
+                            <p>1234567890</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info">
+                            <h3>Email</h3>
+                            <p>zzz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h6>出于需要，我们购买“electroboy.cn”作为域名。但是这个网站不是官方网站哦。</h6>
+    
+    
+    <div id="myModal" class="modal">
+        <p>是否允许播放电击小子背景音乐？</p>
+        <button id="playButton">播放</button>
+        <button id="cancelButton">取消</button>
+      </div>
+      
+      <audio id="bgMusic" src="2.wav" loop></audio>
 
-  // 应用新的变换样式到图像元素上
-  imageElement.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
-});
-
-    imageElement.addEventListener('mousedown', function (event) {
-      event.preventDefault();
-      if (event.button === 0) {
-        isDragging = true;
-        startMouseX = event.clientX;
-        startMouseY = event.clientY;
-        startImageX = parseInt(window.getComputedStyle(imageElement).getPropertyValue('left'));
-        startImageY = parseInt(window.getComputedStyle(imageElement).getPropertyValue('top'));
-      }
-    });
-
-    imageElement.addEventListener('mousemove', function (event) {
-      event.preventDefault();
-      if (isDragging) {
-        var deltaX = event.clientX - startMouseX;
-        var deltaY = event.clientY - startMouseY;
-        imageElement.style.left = (startImageX + deltaX) + 'px';
-        imageElement.style.top = (startImageY + deltaY) + 'px';
-      }
-    });
-
-    imageElement.addEventListener('mouseup', function (event) {
-      event.preventDefault();
-      isDragging = false;
-    });
-
-    imageElement.addEventListener('mouseleave', function (event) {
-      event.preventDefault();
-      isDragging = false;
-    });
-
-    imageElement.addEventListener('mousedown', function (event) {
-      event.preventDefault();
-      if (event.button === 0) {
-        isDragging = true;
-        var offsetX = event.clientX - parseInt(window.getComputedStyle(imageElement).getPropertyValue('left'));
-        var offsetY = event.clientY - parseInt(window.getComputedStyle(imageElement).getPropertyValue('top'));
-
-        document.addEventListener('mousemove', moveImage);
-        document.addEventListener('mouseup', stopDragging);
-
-        function moveImage(event) {
-          var left = event.clientX - offsetX;
-          var top = event.clientY - offsetY;
-          imageElement.style.left = left + 'px';
-          imageElement.style.top = top + 'px';
-        }
-
-        function stopDragging(event) {
-          isDragging = false;
-          document.removeEventListener('mousemove', moveImage);
-          document.removeEventListener('mouseup', stopDragging);
-        }
-      }
-    });
-
-    var previousButton = document.getElementById('previous-button');
-    var nextButton = document.getElementById('next-button');
-
-    previousButton.addEventListener('click', function () {
-      currentImageIndex--;
-      if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1;
-      }
-      imageElement.src = images[currentImageIndex];
-    });
-
-    nextButton.addEventListener('click', function () {
-      currentImageIndex++;
-      if (currentImageIndex >= images.length) {
-        currentImageIndex = 0;
-      }
-      imageElement.src = images[currentImageIndex];
-    });
-  </script>
 </body>
 
+<script>
+    var image = document.getElementById('movingImage');
+    var position = 0;
+    // var position = window.innerWidth * 0.1; // 初始位置在屏幕宽度的20%处
+    var speed = 2; // 每帧移动的像素数
+    var viewportWidth = window.innerWidth;
+    var movingRight = true; // 初始移动方向为向右
+  
+    function moveImage() {
+      if (movingRight) {
+        position += speed;
+        image.style.left = position + 'px';
+        if (position >= viewportWidth * 0.8) {
+          movingRight = false; // 到达当前视口宽度的80%时，改变移动方向为向左
+          image.style.transform = "scaleX(1)"; // 取消镜像效果
+        }
+      } else {
+        position -= speed;
+        image.style.left = position + 'px';
+        // if (position <= viewportWidth * 0.1) {
+            if (position <= 0) {  
+          movingRight = true; // 到达初始位置时，改变移动方向为向右
+          image.style.transform = "scaleX(-1)"; // 添加镜像效果
+        }
+      }
+      requestAnimationFrame(moveImage);
+    }
+  
+    requestAnimationFrame(moveImage);
+  </script>
+
+<script>
+    window.onload = function() {
+      var modal = document.getElementById("myModal");
+      var playBtn = document.getElementById("playButton");
+      var cancelBtn = document.getElementById("cancelButton");
+      var audio = document.getElementById("bgMusic");
+    
+      playBtn.onclick = function() {
+        audio.play();
+        modal.style.display = "none"; // 隐藏弹窗
+      }
+    
+      cancelBtn.onclick = function() {
+        modal.style.display = "none"; // 隐藏弹窗
+      }
+    
+      // 显示弹窗
+      modal.style.display = "block";
+    }
+    </script>
+<script>
+    function playAudio() {
+      var audio = document.getElementById("audioPlayer");
+      audio.play();
+    }
+
+    function playAudio2() {
+      var audio = document.getElementById("audioPlayer2");
+      audio.play();
+    }
+    </script>
+    
 </html>
