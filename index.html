@@ -1,11 +1,12 @@
 <!-- @刘洪材编写 -->
 <!-- 2024年3月14日 -->
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
-     content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="cache-control" content="no-siteapp">
@@ -17,7 +18,7 @@
             padding: 0;
         }
 
-        body{
+        body {
             padding: 95px 6%;
             background: linear-gradient(to right top, #ff1493, #2980b9);
         }
@@ -34,6 +35,7 @@
             text-align: center;
             padding: 10px;
         }
+
         .container {
             display: flex;
         }
@@ -75,7 +77,7 @@
         .information {
             padding: 20px 30px;
             flex: 1 1 1000px;
-            background: #FFFFFF; 
+            background: #FFFFFF;
         }
 
         .title {
@@ -270,33 +272,49 @@
         .info {
             padding-left: 10px;
         }
-    </style>
-      <style>
-        /* 弹窗样式 */
-        .modal {
-          display: none; /* 默认隐藏 */
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background-color: #fff;
-          padding: 20px;
-          border: 1px solid #000;
-          z-index: 1000;
+
+        .tishi {
+            width: 200px;
+
+            z-index: 9;
+            position: absolute;
+            top: 20;
+            left: 100;
+
+
+            cursor: pointer;
         }
-      </style>
+
+        #movingImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            z-index: 8;
+            cursor: pointer;
+            transform: scaleX(-1);
+        }
+    </style>
+
 
 </head>
 
 <body>
-    <img src="./image/djxz.gif" alt="" id="movingImage" style="position: absolute; transform: scaleX(-1); top: 0; left: 0; width: 100px; height: 100px; z-index: -1;">
-   
+    <img src="./image/djxz.gif" alt="" id="movingImage" onclick="toggleMusic()">
+    <!-- 文字提示 -->
+    <img src="./image/tishi.png" alt="" class="tishi" onclick="tishi()">
+    <!-- 触发播放音乐和暂停，触发运动和停止 -->
+    <!-- <img src="./image/djxz.gif" alt="" id="movingImage" onclick="toggleMovement()" style="position: absolute; transform: scaleX(-1); top: 0; left: 0; width: 100px; height: 100px; z-index: 8;"> -->
+
+    <audio id="backgroundMusic" src="电击小子 完整原版.mp3" loop></audio>
     <div class="container">
 
         <div class="information">
 
             <div class="about">
-                <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;" onclick="playAudio()"></h3>
+                <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
+                        onclick="playAudio()"></h3>
                 <audio id="audioPlayer" src="1.wav"></audio>
                 <p>电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。</p>
                 <!-- <p>不仅如此，我还能熟练使用前端语言独立制作电商网站，招聘网站等等，这个简历也是我用HTML和CSS完成的哦。</p> -->
@@ -321,7 +339,7 @@
                 <div class="imgbox-container">
                     <div class="box">
                         <a href="https://www.electroboy.cn/embassy">
-                            <img src="./image/fix.png" alt="">  
+                            <img src="./image/fix.png" alt="">
                         </a>
                         <h3>embassy</h3>
                     </div>
@@ -335,9 +353,9 @@
                     </div>
                     <div class="box">
                         <a href="https://qq.electroboy.cn/" alt="">
-                            <img src="./image/djxzqq.png" alt="">  
+                            <img src="./image/djxzqq.png" alt="">
                         </a>
-                            <h3>QQ群</h3>
+                        <h3>QQ群</h3>
                     </div>
                     <!-- <div class="box">
                         <img src="http://nocturne.bczcdn.com/file/1645598226940_86454/icon-5.png" alt="">
@@ -393,7 +411,8 @@
             </div>
 
             <div class="experience">
-                <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;" onclick="playAudio2()"></h3>
+                <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
+                        onclick="playAudio2()"></h3>
                 <audio id="audioPlayer2" src="2.wav"></audio>
 
                 <div class="box-container">
@@ -413,8 +432,8 @@
                         <!-- <i class="fas fa-map"img src="./1.png" alt=""></i> -->
                         <div class="fas fa-map">
                             <img src="./image/djxzqq.png" alt="" width="50" height="50" style="border-radius: 50%;">
-                          </div>
-                    
+                        </div>
+
                         <div class="info">
                             <h3>QQ群</h3>
                             <p>364310663</p>
@@ -439,79 +458,152 @@
         </div>
     </div>
     <h6>出于需要，我们购买“electroboy.cn”作为域名。但是这个网站不是官方网站哦。</h6>
-    
-    
-    <div id="myModal" class="modal">
-        <p>是否允许播放电击小子背景音乐？</p>
-        <button id="playButton">播放</button>
-        <button id="cancelButton">取消</button>
-      </div>
-      
-      <audio id="bgMusic" src="2.wav" loop></audio>
 
 </body>
 
-<script>
+<!-- <script>
     var image = document.getElementById('movingImage');
     var position = 0;
     // var position = window.innerWidth * 0.1; // 初始位置在屏幕宽度的20%处
-    var speed = 2; // 每帧移动的像素数
+    var speed = 1; // 每帧移动的像素数
     var viewportWidth = window.innerWidth;
     var movingRight = true; // 初始移动方向为向右
-  
+
     function moveImage() {
-      if (movingRight) {
-        position += speed;
-        image.style.left = position + 'px';
-        if (position >= viewportWidth * 0.8) {
-          movingRight = false; // 到达当前视口宽度的80%时，改变移动方向为向左
-          image.style.transform = "scaleX(1)"; // 取消镜像效果
+        if (movingRight) {
+            position += speed;
+            image.style.left = position + 'px';
+            if (position >= viewportWidth * 0.8) {
+                movingRight = false; // 到达当前视口宽度的80%时，改变移动方向为向左
+                image.style.transform = "scaleX(1)"; // 取消镜像效果
+            }
+        } else {
+            position -= speed;
+            image.style.left = position + 'px';
+            // if (position <= viewportWidth * 0.1) {
+            if (position <= 0) {
+                movingRight = true; // 到达初始位置时，改变移动方向为向右
+                image.style.transform = "scaleX(-1)"; // 添加镜像效果
+            }
         }
-      } else {
-        position -= speed;
-        image.style.left = position + 'px';
-        // if (position <= viewportWidth * 0.1) {
-            if (position <= 0) {  
-          movingRight = true; // 到达初始位置时，改变移动方向为向右
-          image.style.transform = "scaleX(-1)"; // 添加镜像效果
-        }
-      }
-      requestAnimationFrame(moveImage);
+        requestAnimationFrame(moveImage);
     }
-  
+
     requestAnimationFrame(moveImage);
-  </script>
+</script> -->
+<script>
+
+    function tishi() {
+
+        // 触发音乐播放，移动图片
+        toggleMusic();
+        // 移动图片
+        tupian();
+    }
+    // 获取图片元素
+    var image = document.getElementById('movingImage');
+    // 初始化位置、速度、屏幕宽度、移动方向和动画间隔
+    var position = 0;
+    var speed = 1;
+    var viewportWidth = window.innerWidth;
+    var movingRight = true;
+    var movementInterval;
+
+    // 移动图片的函数
+    function moveImage() {
+        var viewportWidth = window.innerWidth; // 动态获取窗口宽度
+        console.log("屏幕宽度: " + viewportWidth); // 添加打印语句 
+        if (movementInterval) {
+            if (movingRight) {
+                position += speed;
+                image.style.left = position + 'px';
+
+                if (position >= viewportWidth * 0.85) {
+                    console.log("计算: " + viewportWidth * 0.85); // 添加打印语句 
+                    console.log("Current position: " + position); // 添加打印语句   
+                    movingRight = false;
+                    image.style.transform = "scaleX(1)";
+                }
+            } else {
+                position -= speed;
+                image.style.left = position + 'px';
+                if (position <= viewportWidth * 0.05) {
+                    console.log("计算: " + viewportWidth * 0.05); // 添加打印语句 
+                    console.log("Current position: " + position); // 添加打印语句
+                    movingRight = true;
+                    image.style.transform = "scaleX(-1)";
+                }
+            }
+            movementInterval = requestAnimationFrame(moveImage);
+        }
+    }
+
+    // 启动移动
+    function startMovement() {
+        if (!movementInterval) {
+            movementInterval = requestAnimationFrame(moveImage);
+
+        }
+    }
+
+    // 停止移动
+    function stopMovement() {
+        if (movementInterval) {
+            console.log("Stopping movement");
+            console.log("Current movementInterval value: " + movementInterval);
+            cancelAnimationFrame(movementInterval);
+            movementInterval = null; // 重置 movementInterval
+            console.log("After cancelAnimationFrame: " + movementInterval);
+        }
+    }
+
+    // 获取音乐元素和音乐播放状态
+    var music = document.getElementById('backgroundMusic');
+    var isPlaying = false;
+
+
+    function toggleMusic() {
+        // 隐藏提示图片
+        var images = document.getElementsByClassName('tishi');
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.display = 'none';
+        }
+        // 切换音乐播放状态   
+        if (isPlaying) {
+            music.pause();
+        } else {
+            music.play();
+        }
+        isPlaying = !isPlaying;
+
+        // 同时切换图片移动状态
+        if (movementInterval) {
+            stopMovement();
+        } else {
+            startMovement();
+        }
+    }
+</script>
 
 <script>
-    window.onload = function() {
-      var modal = document.getElementById("myModal");
-      var playBtn = document.getElementById("playButton");
-      var cancelBtn = document.getElementById("cancelButton");
-      var audio = document.getElementById("bgMusic");
-    
-      playBtn.onclick = function() {
-        audio.play();
-        modal.style.display = "none"; // 隐藏弹窗
-      }
-    
-      cancelBtn.onclick = function() {
-        modal.style.display = "none"; // 隐藏弹窗
-      }
-    
-      // 显示弹窗
-      modal.style.display = "block";
+    function tupian() {
+        // 隐藏提示图片
+        var images = document.getElementsByClassName('tishi');
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.display = 'none';
+        }
     }
-    </script>
-<script>
+
+    // 播放语音1-2
     function playAudio() {
-      var audio = document.getElementById("audioPlayer");
-      audio.play();
+        var audio = document.getElementById("audioPlayer");
+        audio.play();
     }
 
     function playAudio2() {
-      var audio = document.getElementById("audioPlayer2");
-      audio.play();
+        var audio = document.getElementById("audioPlayer2");
+        audio.play();
     }
-    </script>
-    
+</script>
+
 </html>
