@@ -75,6 +75,7 @@
         }
 
         .information {
+            width: 20px;
             padding: 20px 30px;
             flex: 1 1 1000px;
             background: #FFFFFF;
@@ -99,7 +100,7 @@
         }
 
         .about .box-container .box {
-            flex: 1 1 250px;
+            flex: 1 1 150px;
         }
 
         .about .box-container .box h3 {
@@ -118,6 +119,8 @@
 
         .imgbox-container {
             display: flex;
+            overflow: auto;
+            scroll-behavior: smooth;
         }
 
         .imgbox-container .box {
@@ -307,7 +310,7 @@
     <!-- 触发播放音乐和暂停，触发运动和停止 -->
     <!-- <img src="./image/djxz.gif" alt="" id="movingImage" onclick="toggleMovement()" style="position: absolute; transform: scaleX(-1); top: 0; left: 0; width: 100px; height: 100px; z-index: 8;"> -->
 
-    <audio id="backgroundMusic" src="电击小子 完整原版.mp3" loop></audio>
+    <audio id="backgroundMusic" src="./music/电击小子 完整原版.mp3" loop></audio>
     <div class="container">
 
         <div class="information">
@@ -315,22 +318,24 @@
             <div class="about">
                 <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
                         onclick="playAudio()"></h3>
-                <audio id="audioPlayer" src="1.wav"></audio>
+                <audio id="audioPlayer" src="./music/jieshao.mp3"> </audio>
                 <p>电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。</p>
-                <!-- <p>不仅如此，我还能熟练使用前端语言独立制作电商网站，招聘网站等等，这个简历也是我用HTML和CSS完成的哦。</p> -->
+
                 <div class="box-container">
                     <div class="box">
                         <h3><span>年龄 : </span>10</h3>
                         <h3><span>地址 : </span>中国</h3>
-                        <!-- <h3><span>电话 : </span>1234567890</h3>
-                        <h3><span>邮箱 : </span>Algo@Yequ.Com</h3> -->
+
                     </div>
                     <div class="box">
                         <h3><span>姓名 : </span>电击小子</h3>
                         <h3><span>语言 : </span>中文, English</h3>
-                        <!-- <h3><span>工龄 : </span>2 年</h3>
-                        <h3><span>现状 : </span>随时到岗</h3> -->
+
                     </div>
+                    <div class="box">
+                        <img src="./image/djxzqq.png" alt="">
+                    </div>
+
                 </div>
             </div>
 
@@ -344,12 +349,17 @@
                         <h3>embassy</h3>
                     </div>
                     <div class="box">
-                        <img src="http://nocturne.bczcdn.com/file/1645598216656_89057/icon-2.png" alt="">
-                        <h3>CSS 3</h3>
+                        <a
+                            href="https://www.bilibili.com/video/BV1hx421y7Ug/?share_source=copy_web&vd_source=512690434e14e2022bb9a2d8baf5a232">
+                            <img src="./image/blbl.jpeg" alt="">
+                        </a>
+                        <h3>哔哩哔哩</h3>
                     </div>
                     <div class="box">
-                        <img src="http://nocturne.bczcdn.com/file/1645598219832_4197/icon-3.png" alt="">
-                        <h3>JavaScript</h3>
+                        <a href="./music" alt="">
+                            <img src="./image/music.png" alt="">
+                        </a>
+                        <h3>音乐播放器</h3>
                     </div>
                     <div class="box">
                         <a href="https://qq.electroboy.cn/" alt="">
@@ -413,7 +423,7 @@
             <div class="experience">
                 <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
                         onclick="playAudio2()"></h3>
-                <audio id="audioPlayer2" src="2.wav"></audio>
+                <audio id="audioPlayer2" src="./music/huanying.mp3"></audio>
 
                 <div class="box-container">
                     <div class="box">
@@ -586,6 +596,23 @@
 </script>
 
 <script>
+    let container = document.querySelector('.imgbox-container');
+    let images = document.querySelectorAll('.imgbox-container .box');
+    let imageWidth = images[0].offsetWidth;
+    let totalWidth = images.length * imageWidth;
+    let scrollDirection = 1;
+    let currentScroll = 0;
+
+    function scrollContainer() {
+        currentScroll += scrollDirection;
+        if (currentScroll >= totalWidth || currentScroll < 0) {
+            scrollDirection = -scrollDirection;
+        }
+        container.scrollLeft = Math.abs(currentScroll % totalWidth);
+    }
+
+    setInterval(scrollContainer, 10);
+
     function tupian() {
         // 隐藏提示图片
         var images = document.getElementsByClassName('tishi');
