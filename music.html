@@ -6,10 +6,221 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>电击小子音乐播放器</title>
+	<title>音乐播放器</title>
 	<link rel="shortcut icon" href="./image/djxzlogo.png" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/djxz.css">
+	<style>
+		/* 当屏幕宽度大于高度时的样式（电脑） */
+		/* @media (orientation: landscape)  */
+		@media only screen and (min-width: 670px) {
+			.container {
+				background-color: rgb(255, 255, 255);
+				width: 600px;
+				margin: 50px auto;
 
+
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+				text-align: center;
+			}
+
+			#lyrics {
+				min-height: 38px;
+				color: var(--text-color);
+				font-size: 28px;
+				/* color: #4400ff; */
+				text-align: center;
+				margin-top: 10px;
+			}
+		}
+
+		/* 当屏幕高度大于宽度时的样式 (手机)*/
+		/* @media (orientation: portrait) { */
+
+		/* 当屏幕高度大于宽度1.5倍时的样式  */
+		/* @media (min-aspect-ratio: 2/3) { */
+		@media only screen and (max-width: 670px) {
+			.container {
+				/* background-color: rgb(240, 242, 240); */
+				/* height: 100%; */
+				width: 90%;
+				margin-top: 80px;
+				padding: 20px;
+				border-radius: 5px;
+				/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+				text-align: center;
+			}
+
+			#lyrics {
+				min-height: 36px;
+				/* 根据实际情况设置最小高度 */
+				font-size: 25px;
+				/* color: #4400ff; */
+				color: var(--text-color);
+				text-align: center;
+				margin-top: 10px;
+			}
+		}
+
+		/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+		@font-face {
+			font-family: "Ali";
+			font-weight: 400;
+			src:
+				url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/sAoHa2deDxb8.woff2") format("woff2"),
+				url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/Tho4GG66GOQX.woff") format("woff");
+			font-display: swap;
+		}
+
+		/* 第二种字体 */
+		@font-face {
+			font-family: 'alishuhei';
+			font-weight: 700;
+			src: url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/0QcGnSSggTOJ.woff2") format("woff2"),
+				url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/ofDsg1jSWdf1.woff") format("woff");
+		}
+
+		.font2 {
+			font-family: 'alishuhei', serif;
+			/* 使用定义的远程字体 */
+		}
+
+		body {
+			/* 使用定义的字体 */
+			font-family: 'Ali', sans-serif;
+			/* font-size: 50px; */
+			line-height: 1;
+			font-weight: lighter;
+
+			background-color: #f5f5f5;
+		}
+
+		/* .container {
+			margin: 50px auto;
+			width: 450px;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		} */
+
+		h2 {
+			margin-top: 0;
+		}
+
+		.image {
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			border: 5px solid #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			margin: 20px auto;
+			position: relative;
+			animation: spin 2s linear infinite;
+		}
+
+		.image img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.image {
+			animation-name: spin;
+			animation-duration: 10s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+
+		}
+
+		.progress {
+			width: 100%;
+			height: 10px;
+			background-color: #f1f1f1;
+			border-radius: 5px;
+			margin: 20px auto;
+			position: relative;
+		}
+
+		.progress-bar {
+			width: 0%;
+			height: 100%;
+			background-color: #4CAF50;
+			border-radius: 5px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.player-controls {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			/* 垂直居中 */
+		}
+
+		.spacer {
+			flex-grow: 1;
+			/* 占据剩余空间 */
+		}
+
+		.play-button {
+			background-color: #f44336;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		.play-button.paused {
+			background-color: #4CAF50;
+		}
+
+		.circle {
+			position: relative;
+			top: 20px;
+			left: 20px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: black;
+		}
+
+		/* 颜色切换按钮 */
+		.color-button {
+			background-color: var(--button-color);
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 5px;
+		}
+	</style>
 </head>
 
 <body>
@@ -36,14 +247,221 @@
 		<button id="toggle-btn" class="color-button">文字颜色</button>
 
 		<button class="play-button paused" onclick="toggleAudio()">播放</button>
-		
+		<!-- HTML中添加一个按钮 -->
 		<button class="play-button paused" onclick="speedUpAnimation()">动画</button>
 	</div>
-	
-	<script src="js/music.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/colors.js"></script>
+	<!-- <div class="circle"></div> -->
+	<script>
+		// Define the lyrics
+		const lyrics = [
+			{ startTime: 0, endTime: 5, text: '电击小子主题曲' },
+			{ startTime: 5, endTime: 8, text: '提取于电击小子第一集' },
+			{ startTime: 14.88, endTime: 17.24, text: '漫漫星空宇宙一望无际' },
+			{ startTime: 17.24, endTime: 18.92, text: '美丽而神秘' },
+			{ startTime: 19.44, endTime: 21.36, text: '高深莫测' },
+			{ startTime: 21.36, endTime: 22.8, text: '多么叫人好奇' },
+			{ startTime: 23.92, endTime: 25.08, text: '未来科幻世界' },
+			{ startTime: 25.08, endTime: 25.92, text: '各样机械' },
+			{ startTime: 25.92, endTime: 27.56, text: '我眼界大开' },
+			{ startTime: 28.32, endTime: 32.04, text: '神奇的力量' },
+			{ startTime: 32.04, endTime: 33.24, text: '很精彩' },
+			{ startTime: 34.64, endTime: 35.52, text: '电击火光' },
+			{ startTime: 35.52, endTime: 36.92, text: '闪 闪 闪 闪' },
+			{ startTime: 36.92, endTime: 38.12, text: '真厉害' },
+			{ startTime: 39.08, endTime: 39.92, text: '摇身一变' },
+			{ startTime: 39.92, endTime: 41.08, text: '变 变 变 变' },
+			{ startTime: 41.08, endTime: 43.44, text: 'Electro Boy' },
+			{ startTime: 43.44, endTime: 44.86, text: '来 吧 看 看' },
+			{ startTime: 45.08, endTime: 46.08, text: '火星大力拳' },
+			{ startTime: 46.08, endTime: 46.68, text: '呼啦呼啦' },
+			{ startTime: 46.68, endTime: 47.96, text: '小子变身' },
+			{ startTime: 47.96, endTime: 50.08, text: '对付大坏蛋' },
+			{ startTime: 50.56, endTime: 52.64, text: '除暴安良' },
+			{ startTime: 52.64, endTime: 54.96, text: '维持治安' },
+			{ startTime: 55, endTime: 55.48, text: '呼啦呼啦' },
+			{ startTime: 55.48, endTime: 57.12, text: '小子身手非凡' },
+			{ startTime: 57.12, endTime: 58.96, text: '头脑不简单' },
+			{ startTime: 59.48, endTime: 62.32, text: '勇敢又善良' },
+			{ startTime: 63.72, endTime: 66.6, text: '心发热发亮' },
+			// Add more lyrics as neede
+		];
 
+		// Get the audio element
+		const music = document.getElementById('music');
+
+		// Display lyrics based on current time of the music
+		music.addEventListener('timeupdate', function () {
+			const currentTime = music.currentTime;
+			const currentLyric = lyrics.find(lyric => currentTime >= lyric.startTime && currentTime < lyric.endTime);
+			if (currentLyric) {
+				document.getElementById('lyrics').textContent = currentLyric.text;
+			} else {
+				document.getElementById('lyrics').textContent = '';
+			}
+		});
+	</script>
+
+
+	<script>
+		// Get the audio element
+		const fileName = './music/电击小子 完整原版.mp3'; // 定义文件名变量	
+		const audio = new Audio(fileName); // 使用文件名变量来创建音频对象
+		const progressBar = document.querySelector('.progress-bar');
+		const progress = document.querySelector('.progress');
+		const currentTime = document.querySelector('.current-time');
+		const totalTime = document.querySelector('.total-time');
+		const playButton = document.querySelector('.play-button');
+
+		// 点击进度条时切换音乐播放进度
+		progress.addEventListener('click', function (e) {
+			const clickX = e.offsetX; // 获取鼠标点击位置相对于进度条的偏移量
+			const progressWidth = progress.clientWidth; // 获取进度条的宽度
+			const clickPercent = (clickX / progressWidth); // 计算点击位置占进度条的百分比
+			console.log(clickPercent);
+			const newTime = clickPercent * audio.duration; // 根据百分比计算新的播放时间
+			audio.currentTime = newTime; // 设置音乐播放进度
+		});
+
+		// 更新进度条和时间显示
+		audio.addEventListener('timeupdate', function () {
+			const percent = (audio.currentTime / audio.duration) * 100;
+			progressBar.style.width = percent + '%';
+			currentTime.textContent = formatTime(audio.currentTime);
+			totalTime.textContent = formatTime(audio.duration);
+		});
+
+		// 在音乐播放完毕时触发
+		audio.addEventListener('ended', function () {
+			playButton.textContent = '播放';
+			playButton.classList.add('paused');// 暂停动画
+			image.style.animationPlayState = 'paused';//改变按钮的颜色
+			console.log('音乐已经播放完毕！')
+		});
+
+		// Display lyrics based on current time of the music
+		audio.addEventListener('timeupdate', function () {
+			const percent = (audio.currentTime / audio.duration) * 100;
+			progressBar.style.width = percent + '%';
+			currentTime.textContent = formatTime(audio.currentTime);
+			totalTime.textContent = formatTime(audio.duration);
+
+			const currentLyric = lyrics.find(lyric => audio.currentTime >= lyric.startTime && audio.currentTime < lyric.endTime);
+			if (currentLyric) {
+				document.getElementById('lyrics').textContent = currentLyric.text;
+			} else {
+				document.getElementById('lyrics').textContent = '';
+			}
+		});
+
+		// 获取具有.image类的元素
+		const image = document.querySelector('.image');
+
+		// 默认情况下停止动画
+		document.addEventListener("DOMContentLoaded", function (event) {
+			const image = document.querySelector('.image');
+			image.style.animationPlayState = 'paused';
+		});
+
+		function toggleAudio() {
+
+			if (currentTime === totalTime) {
+
+				playButton.textContent = '播放';
+				playButton.classList.add('paused');
+				// 暂停动画
+				image.style.animationPlayState = 'paused';
+			}
+			if (audio.paused) {
+				audio.play();
+				playButton.textContent = '暂停';
+				playButton.classList.remove('paused');
+				// 启动动画
+				image.style.animationPlayState = 'running';
+			}
+			else {
+				audio.pause();	//音频将停止播放并暂停在当前位置
+				playButton.textContent = '播放';
+				playButton.classList.add('paused');
+				// 暂停动画
+				image.style.animationPlayState = 'paused';
+			}
+		}
+		// 加速动画
+		function speedUpAnimation() {
+			const currentAnimation = window.getComputedStyle(image).animation;
+			const matches = currentAnimation.match(/(\d+)(s|ms)/);
+			if (matches) {
+				const currentDuration = parseFloat(matches[1]);
+				const unit = matches[2];
+				const newDuration = currentDuration * 0.8; // 加速动画，可以根据需要调整加速倍数
+				console.log(newDuration); // 打印新的持续时间到控制台
+				image.style.animationDuration = `${newDuration}${unit}`;
+			}
+		}
+		function formatTime(time) {
+			var minutes = Math.floor(time / 60);
+			var seconds = Math.floor(time % 60);
+			if (seconds < 10) {
+				seconds = '0' + seconds;
+			}
+			return minutes + ':' + seconds;
+		}
+
+		// 自动播放音频
+		// audio.play();
+
+
+	</script>
+
+	<script>
+		window.onload = function () {
+			// 获取屏幕宽度和高度
+			var screenWidth = window.innerWidth;
+			var screenHeight = window.innerHeight;
+			// 获取content元素
+			var contentDiv = document.querySelector('.content');
+			// 检查屏幕宽度和高度的关系
+			if (screenWidth > screenHeight) {
+				// 当屏幕宽度大于高度时，应用特定样式
+				contentDiv.classList.add('container1');
+			}
+		};
+	</script>
+
+	<script>
+		// 获取按钮元素
+		var toggleBtn = document.getElementById('toggle-btn');
+
+		// 设置文字颜色和按钮颜色
+		function setTextColor() {
+			var colors = ['red', '#4CAF50', 'rgb(0, 0, 0)', 'rgb(111, 111, 2)'];
+			var currentIndex = colors.indexOf(document.documentElement.style.getPropertyValue('--text-color'));
+			var nextIndex = (currentIndex + 1) % colors.length;
+			var nextColor = colors[nextIndex];
+			document.documentElement.style.setProperty('--text-color', nextColor);
+			document.documentElement.style.setProperty('--button-color', nextColor); // 设置按钮颜色与文字颜色同步
+
+			// 将选择的颜色存储到 localStorage
+			localStorage.setItem('textColor', nextColor);
+		}
+
+		// 检查 localStorage 中是否存在之前选择的颜色
+		var storedColor = localStorage.getItem('textColor');
+		if (storedColor) {
+			// 如果存在，则将文字颜色设置为之前选择的颜色
+			document.documentElement.style.setProperty('--text-color', storedColor);
+			document.documentElement.style.setProperty('--button-color', storedColor); // 设置按钮颜色与文字颜色同步
+		} else {
+			// 如果不存在，则设置默认颜色
+			var defaultColor = '#4CAF50';
+			document.documentElement.style.setProperty('--text-color', defaultColor);
+			document.documentElement.style.setProperty('--button-color', defaultColor); // 设置按钮颜色与文字颜色同步
+			localStorage.setItem('textColor', defaultColor); // 将默认颜色存储到 localStorage
+		}
+
+		// 监听按钮的点击事件
+		toggleBtn.addEventListener('click', setTextColor);
+	</script>
 </body>
 
 </html>
