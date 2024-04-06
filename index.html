@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="cache-control" content="no-siteapp">
     <link rel="shortcut icon" href="./image/djxzlogo.png">
-    <title>电击小子</title>
+    <title>电击小子网站</title>
     <style>
         * {
             margin: 0;
@@ -75,7 +75,6 @@
         }
 
         .information {
-            width: 20px;
             padding: 20px 30px;
             flex: 1 1 1000px;
             background: #FFFFFF;
@@ -100,7 +99,7 @@
         }
 
         .about .box-container .box {
-            flex: 1 1 150px;
+            flex: 1 1 250px;
         }
 
         .about .box-container .box h3 {
@@ -119,8 +118,6 @@
 
         .imgbox-container {
             display: flex;
-            overflow: auto;
-            scroll-behavior: smooth;
         }
 
         .imgbox-container .box {
@@ -318,24 +315,20 @@
             <div class="about">
                 <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
                         onclick="playAudio()"></h3>
-                <audio id="audioPlayer" src="./music/jieshao.mp3"> </audio>
+                <audio id="audioPlayer" src="./music/djxz.mp3"></audio>
                 <p>电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。</p>
-
+             
                 <div class="box-container">
                     <div class="box">
                         <h3><span>年龄 : </span>10</h3>
                         <h3><span>地址 : </span>中国</h3>
-
+                 
                     </div>
                     <div class="box">
                         <h3><span>姓名 : </span>电击小子</h3>
                         <h3><span>语言 : </span>中文, English</h3>
-
+                    
                     </div>
-                    <div class="box">
-                        <img src="./image/djxzqq.png" alt="">
-                    </div>
-
                 </div>
             </div>
 
@@ -349,17 +342,14 @@
                         <h3>embassy</h3>
                     </div>
                     <div class="box">
-                        <a
-                            href="https://www.bilibili.com/video/BV1hx421y7Ug/?share_source=copy_web&vd_source=512690434e14e2022bb9a2d8baf5a232">
-                            <img src="./image/blbl.jpeg" alt="">
-                        </a>
+                        <a href="https://www.bilibili.com/video/BV1hx421y7Ug/?share_source=copy_web&vd_source=512690434e14e2022bb9a2d8baf5a232"></a>
+                        <img src="./image/blbl.jpeg" alt="">
+                    </a>
                         <h3>哔哩哔哩</h3>
                     </div>
                     <div class="box">
-                        <a href="./music" alt="">
-                            <img src="./image/music.png" alt="">
-                        </a>
-                        <h3>音乐播放器</h3>
+                        <img src="http://nocturne.bczcdn.com/file/1645598219832_4197/icon-3.png" alt="">
+                        <h3>JavaScript</h3>
                     </div>
                     <div class="box">
                         <a href="https://qq.electroboy.cn/" alt="">
@@ -423,7 +413,7 @@
             <div class="experience">
                 <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
                         onclick="playAudio2()"></h3>
-                <audio id="audioPlayer2" src="./music/huanying.mp3"></audio>
+                <audio id="audioPlayer2" src="./music/jieshao.mp3"></audio>
 
                 <div class="box-container">
                     <div class="box">
@@ -502,6 +492,9 @@
     requestAnimationFrame(moveImage);
 </script> -->
 <script>
+     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.location.href = 'mobile.html';
+    }
 
     function tishi() {
 
@@ -596,23 +589,6 @@
 </script>
 
 <script>
-    let container = document.querySelector('.imgbox-container');
-    let images = document.querySelectorAll('.imgbox-container .box');
-    let imageWidth = images[0].offsetWidth;
-    let totalWidth = images.length * imageWidth;
-    let scrollDirection = 1;
-    let currentScroll = 0;
-
-    function scrollContainer() {
-        currentScroll += scrollDirection;
-        if (currentScroll >= totalWidth || currentScroll < 0) {
-            scrollDirection = -scrollDirection;
-        }
-        container.scrollLeft = Math.abs(currentScroll % totalWidth);
-    }
-
-    setInterval(scrollContainer, 10);
-
     function tupian() {
         // 隐藏提示图片
         var images = document.getElementsByClassName('tishi');

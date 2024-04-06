@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./image/djxzlogo.png">
+  <title>电击小子网站</title>
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <!-- 先引入css文件 放到自己css文件的上面 -->
+  <link rel="stylesheet" href="./css/swiper.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <style>
+    .container {
+      background-color: #fff;
+      width: 100%;
+      /* margin: 50px auto; */
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      text-align: center
+    }
+
+    #lyrics {
+      font-family: ali, serif;
+      min-height: 38px;
+      color: var(--text-color);
+      font-size: 28px;
+      text-align: center;
+      margin-top: -10px
+    }
+
+
+
+
+    @font-face {
+      font-family: Ali;
+      font-weight: 400;
+      src: url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/sAoHa2deDxb8.woff2") format("woff2"), url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/Tho4GG66GOQX.woff") format("woff");
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: alishuhei;
+      font-weight: 700;
+      src: url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/0QcGnSSggTOJ.woff2") format("woff2"), url("https://at.alicdn.com/wf/webfont/AL7WXDq78JMs/ofDsg1jSWdf1.woff") format("woff")
+    }
+
+    .font1 {
+      font-family: ali, serif
+    }
+
+    .font2 {
+      font-family: alishuhei, serif
+    }
+
+    body {
+      /* font-family: Ali, sans-serif; */
+      line-height: 1;
+      font-weight: lighter;
+      background-color: #f5f5f5
+    }
+
+    h2 {
+      margin-top: 0
+    }
+
+    .image {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      top: -20px;
+      border-radius: 50%;
+      /* border: 5px solid #fff; */
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      margin: 20px auto;
+      position: relative;
+      animation: spin 2s linear infinite
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover
+    }
+
+    .image {
+      animation-name: spin;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .progress {
+      width: 100%;
+      height: 10px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      margin: 20px auto;
+      position: relative
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background-color: #4caf50;
+      border-radius: 5px;
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+
+    .player-controls {
+      font-size: 20px;
+      margin-block: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    /* 图片水平分布 */
+    .imgbox-container {
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .imgbox-container img {
+      width: 48%;
+    }
+
+    .spacer {
+      flex-grow: 1
+    }
+
+    .play-button {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px
+    }
+
+    .play-button.paused {
+      background-color: #4caf50
+    }
+
+    .circle {
+      position: relative;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #000
+    }
+
+    .color-button {
+      background-color: var(--button-color);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px
+    }
+
+    #movingElement {
+      position: fixed;
+      top: 50px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+      background-color: #f00;
+    }
+
+    /* 电击小子介绍 */
+    .about p {
+      font-size: 17px;
+      line-height: 2;
+      padding-bottom: 10px;
+      color: #777777;
+    }
+
+    .about img {
+      top: -10px;
+      position: relative;
+      width: 35px;
+    }
+
+    .about h3 {
+      font-size: 35px;
+      margin: 0%;
+      margin-bottom: 10px;
+    }
+
+    .about .box-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .about .box-container .box {
+      flex: 1 1 150px;
+    }
+
+    .about .box-container .box h3 {
+      font-size: 15px;
+      padding: 10px 0;
+      color: #333333;
+    }
+
+    .about .box-container .box h3 span {
+      color: #777777;
+    }
+  </style>
+
+</head>
+
+<body>
+  <section class="warp">
+    <!-- 头部区域 -->
+    <header class="header">电击小子</header>
+    <!-- 导航栏部分 -->
+    <nav class="nav">
+      <a href="#" class="item">
+        <img src="./icons/icon1.png" alt="" />
+        <span>联系</span>
+      </a>
+      <a href="#" class="item">
+        <img src="./icons/icon2.png" alt="" />
+        <span>项目源码</span>
+      </a>
+      <a href="#" class="item">
+        <img src="./icons/icon3.png" alt="" />
+        <span>技术支持</span>
+      </a>
+      <!-- <a href="#" class="item">
+        <img src="./icons/icon1.png" alt="" />
+        <span>联系</span>
+      </a>
+      <a href="#" class="item">
+        <img src="./icons/icon2.png" alt="" />
+        <span>项目源码</span>
+      </a>
+      <a href="#" class="item">
+        <img src="./icons/icon3.png" alt="" />
+        <span>技术支持</span>
+      </a> -->
+
+    </nav>
+    <!-- go模块 -->
+    <section class="go">
+      <a href="https://qq.electroboy.cn/" class="item">
+        <img src="./image/go.png" alt="QQ群364310663" />
+      </a>
+    </section>
+  </section>
+
+  <section class="content">
+    <!-- 头部  电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。
+
+      年龄 : 10
+      地址 : 中国
+      姓名 : 电击小子
+      语言 : 中文, English -->
+
+    <div class="about">
+      <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
+          onclick="playAudio()"></h3>
+      <audio id="audioPlayer" src="./music/jieshao.mp3"> </audio>
+      <p>熊小光，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。绝招火星大力拳，雷霆电激光，电击保护盾</p>
+
+      <div class="box-container">
+        <div class="box">
+          <h3><span>年龄 : </span>10</h3>
+          <h3><span>地址 : </span>中国</h3>
+        </div>
+        <div class="box">
+          <h3><span>姓名 : </span>熊小光(电击小子)</h3>
+          <h3><span>语言 : </span>中文, English</h3>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="imgbox-container">
+      <img src="./image/电击小子.jpg" alt="">
+      <img src="./image/电击小子2.jpg" alt="">
+      <!-- <img src="./image/djxzqq.png" alt=""> -->
+    </div>
+  </section>
+
+  <!-- 音乐播放器模块 -->
+  <section class="content">
+    <!-- 头部 -->
+    <div class="con-hd">
+      <h4 class="font2">
+        <span class="icon"><img src="./icons/music.png" alt="" /></span>
+        电击小子 完整原版.mp3
+      </h4>
+      <a href="#" class="more">更多>></a>
+    </div>
+    <!-- 旋转木马轮播图模块 -->
+    <div class="get_job_focus">
+      <div class="container">
+        <!-- <h2 class="font2">电击小子 完整原版.mp3</h2> -->
+        <div class="image">
+          <img src="./image/djxz dvd.png" alt="很明显电击小子图片加载失败了">
+        </div>
+
+        <!-- 歌词 -->
+        <div class="lyrics" id="lyrics"></div>
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
+
+        <div class="player-controls">
+          <!-- 播放时间 -->
+          <span class="time current-time">0:00</span>
+          <!-- 占位符，用于占据剩余空间 -->
+          <div class="spacer"></div>
+          <!-- 结束时间 -->
+          <span class="time total-time">0:00</span>
+        </div>
+        <button id="toggle-btn" class="color-button">文字颜色</button>
+
+        <button class="play-button paused" onclick="toggleAudio()">播放</button>
+        <!-- HTML中添加一个按钮 -->
+        <button class="play-button paused" onclick="speedUpAnimation()">动画</button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- 文章模块 -->
+  <section class="content study_con">
+    <!-- 头部 -->
+    <div class="con-hd">
+      <h4>
+        <span class="icon"><img src="./icons/i2.png" alt="" /></span>
+        相关文章
+      </h4>
+      <a href="#" class="more">更多>></a>
+    </div>
+    <!-- 学习模块轮播图模块 -->
+    <div class="study">
+      <!-- Swiper -->
+      <div class="swiper-container study_fo">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./image/qq.jpg" alt="" />
+            <h5>加入电击小子QQ群</h5>
+            <p>15次点击</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="./image/电击小子.jpg" alt="" />
+            <h5>无</h5>
+            <p>156人</p>
+          </div>
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <a href="#" class="item">
+      <img src="./icons/home.png" alt="" />
+      <p>首页</p>
+    </a>
+
+    <a href="#" class="item">
+      <img src="./icons/user.png" alt="" />
+      <p>我的</p>
+    </a>
+  </footer>
+  <script src="./js/flexible.js"></script>
+  <!-- 比如引入js文件 -->
+  <script src="./js/swiper.min.js"></script>
+  <script>
+    // 第一个函数里面是 就业指导轮播图
+    (function () {
+      var swiper = new Swiper(".get_job_fo", {
+        // 能够显示的 slider的个数
+        slidesPerView: 2,
+        // 每一个slide之间的距离
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        // 添加左右箭头
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    })();
+    // 第二个函数的轮播图
+    (function () {
+      //  如果有多个轮播图最好修改下 swiper-container
+      var swiper = new Swiper(".study_fo", {
+        // 我们可以可以看看到的是 2个半
+        slidesPerView: 2.2,
+        spaceBetween: 20,
+      });
+    })();
+  </script>
+  <script>const lyrics = [{ startTime: 0, endTime: 5, text: "电击小子主题曲" }, { startTime: 5, endTime: 8, text: "提取于电击小子第一集" }, { startTime: 14.88, endTime: 17.24, text: "漫漫星空宇宙一望无际" }, { startTime: 17.24, endTime: 18.92, text: "美丽而神秘" }, { startTime: 19.44, endTime: 21.36, text: "高深莫测" }, { startTime: 21.36, endTime: 22.8, text: "多么叫人好奇" }, { startTime: 23.92, endTime: 25.08, text: "未来科幻世界" }, { startTime: 25.08, endTime: 25.92, text: "各样机械" }, { startTime: 25.92, endTime: 27.56, text: "我眼界大开" }, { startTime: 28.32, endTime: 32.04, text: "神奇的力量" }, { startTime: 32.04, endTime: 33.24, text: "很精彩" }, { startTime: 34.64, endTime: 35.52, text: "电击火光" }, { startTime: 35.52, endTime: 36.92, text: "闪 闪 闪 闪" }, { startTime: 36.92, endTime: 38.12, text: "真厉害" }, { startTime: 39.08, endTime: 39.92, text: "摇身一变" }, { startTime: 39.92, endTime: 41.08, text: "变 变 变 变" }, { startTime: 41.08, endTime: 43.44, text: "Electro Boy" }, { startTime: 43.44, endTime: 44.86, text: "来 吧 看 看" }, { startTime: 45.08, endTime: 46.08, text: "火星大力拳" }, { startTime: 46.08, endTime: 46.68, text: "呼啦呼啦" }, { startTime: 46.68, endTime: 47.96, text: "小子变身" }, { startTime: 47.96, endTime: 50.08, text: "对付大坏蛋" }, { startTime: 50.56, endTime: 52.64, text: "除暴安良" }, { startTime: 52.64, endTime: 54.96, text: "维持治安" }, { startTime: 55, endTime: 55.48, text: "呼啦呼啦" }, { startTime: 55.48, endTime: 57.12, text: "小子身手非凡" }, { startTime: 57.12, endTime: 58.96, text: "头脑不简单" }, { startTime: 59.48, endTime: 62.32, text: "勇敢又善良" }, { startTime: 63.72, endTime: 66.6, text: "心发热发亮" }], music = document.getElementById("music"); music.addEventListener("timeupdate", function () { const e = music.currentTime; var t = lyrics.find(t => e >= t.startTime && e < t.endTime); document.getElementById("lyrics").textContent = t ? t.text : "" });</script>
+  <script>const fileName = "./music/电击小子 完整原版.mp3", audio = new Audio(fileName), progressBar = document.querySelector(".progress-bar"), progress = document.querySelector(".progress"), currentTime = document.querySelector(".current-time"), totalTime = document.querySelector(".total-time"), playButton = document.querySelector(".play-button"), image = (progress.addEventListener("click", function (t) { t = t.offsetX / progress.clientWidth, console.log(t), t *= audio.duration; audio.currentTime = t }), audio.addEventListener("timeupdate", function () { var t = audio.currentTime / audio.duration * 100; progressBar.style.width = t + "%", currentTime.textContent = formatTime(audio.currentTime), totalTime.textContent = formatTime(audio.duration) }), audio.addEventListener("ended", function () { playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused", console.log("音乐已经播放完毕！") }), audio.addEventListener("timeupdate", function () { var t = audio.currentTime / audio.duration * 100, t = (progressBar.style.width = t + "%", currentTime.textContent = formatTime(audio.currentTime), totalTime.textContent = formatTime(audio.duration), lyrics.find(t => audio.currentTime >= t.startTime && audio.currentTime < t.endTime)); document.getElementById("lyrics").textContent = t ? t.text : "" }), document.querySelector(".image")); function toggleAudio() { currentTime === totalTime && (playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused"), audio.paused ? (audio.play(), playButton.textContent = "暂停", playButton.classList.remove("paused"), image.style.animationPlayState = "running") : (audio.pause(), playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused") } function speedUpAnimation() { var t, e = window.getComputedStyle(image).animation.match(/(\d+)(s|ms)/); e && (t = parseFloat(e[1]), e = e[2], t = .8 * t, console.log(t), image.style.animationDuration = "" + t + e) } function formatTime(t) { var e = Math.floor(t / 60), t = Math.floor(t % 60); return e + ":" + (t = t < 10 ? "0" + t : t) } document.addEventListener("DOMContentLoaded", function (t) { document.querySelector(".image").style.animationPlayState = "paused" });</script>
+  <script>
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    
+    } else {
+      window.location.href = './index.html';  // 如果是电脑，重定向到2.html
+    }
+    var toggleBtn = document.getElementById("toggle-btn"); function setTextColor() { var t = ["red", "#4CAF50", "rgb(0, 0, 0)", "rgb(111, 111, 2)"], e = t.indexOf(document.documentElement.style.getPropertyValue("--text-color")), e = t[(e + 1) % t.length]; document.documentElement.style.setProperty("--text-color", e), document.documentElement.style.setProperty("--button-color", e), localStorage.setItem("textColor", e) } var defaultColor, storedColor = localStorage.getItem("textColor"); storedColor ? (document.documentElement.style.setProperty("--text-color", storedColor), document.documentElement.style.setProperty("--button-color", storedColor)) : (defaultColor = "#4CAF50", document.documentElement.style.setProperty("--text-color", defaultColor), document.documentElement.style.setProperty("--button-color", defaultColor), localStorage.setItem("textColor", defaultColor)), toggleBtn.addEventListener("click", setTextColor);
+
+    // 播放语音1-2
+    function playAudio() {
+      var audio = document.getElementById("audioPlayer");
+      audio.play();
+    }
+
+    // function playAudio2() {
+    //     var audio = document.getElementById("audioPlayer2");
+    //     audio.play();
+    // }
+  </script>
+</body>
+
+</html>
