@@ -23,7 +23,7 @@
 
     #lyrics {
       font-family: ali, serif;
-      min-height: 38px;
+      /* min-height: 38px; */
       color: var(--text-color);
       font-size: 28px;
       text-align: center;
@@ -203,7 +203,7 @@
       font-size: 17px;
       line-height: 2;
       padding-bottom: 10px;
-      color: #777777;
+      color: #2f2f2f;
     }
 
     .about img {
@@ -236,6 +236,17 @@
     .about .box-container .box h3 span {
       color: #777777;
     }
+
+    #tishi {
+      position: relative;
+      color: #555555ed;
+      font-size: 15px;
+      bottom: 5%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
   </style>
 
 </head>
@@ -243,7 +254,8 @@
 <body>
   <section class="warp">
     <!-- 头部区域 -->
-    <header class="header">电击小子</header>
+    <!-- <header class="header">电击小子</header> -->
+
     <!-- 导航栏部分 -->
     <nav class="nav">
       <a href="https://github.com/lhcdwz" class="item">
@@ -258,18 +270,6 @@
         <img src="./icons/icon3.png" alt="" />
         <span>技术支持</span>
       </a>
-      <!-- <a href="#" class="item">
-        <img src="./icons/icon1.png" alt="" />
-        <span>联系</span>
-      </a>
-      <a href="#" class="item">
-        <img src="./icons/icon2.png" alt="" />
-        <span>项目源码</span>
-      </a>
-      <a href="#" class="item">
-        <img src="./icons/icon3.png" alt="" />
-        <span>技术支持</span>
-      </a> -->
 
     </nav>
     <!-- go模块 -->
@@ -281,13 +281,6 @@
   </section>
 
   <section class="content">
-    <!-- 头部  电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。
-
-      年龄 : 10
-      地址 : 中国
-      姓名 : 电击小子
-      语言 : 中文, English -->
-
     <div class="about">
       <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
           onclick="playAudio()"></h3>
@@ -324,7 +317,7 @@
       </h4>
       <a href="./music" class="more">更多>></a>
     </div>
-    <!-- 旋转木马轮播图模块 -->
+
     <div class="get_job_focus">
       <div class="container">
         <!-- <h2 class="font2">电击小子 完整原版.mp3</h2> -->
@@ -355,10 +348,6 @@
     </div>
   </section>
 
-
-
-
-
   <!-- 文章模块 -->
   <section class="content study_con">
     <!-- 头部 -->
@@ -381,24 +370,25 @@
               <p>15次点击</p>
             </a>
           </div>
-          
+
           <div class="swiper-slide">
             <a href="https://qq.electroboy.cn/">
-            <img src="./image/电击小子.jpg" alt="" />
-            <h5>电击小子</h5>
-            <p>156人</p>
-          </a>
+              <img src="./image/电击小子.jpg" alt="" />
+              <h5>电击小子</h5>
+              <p>156人</p>
+            </a>
           </div>
 
           <div class="swiper-slide">
             <a href="https://qq.electroboy.cn/">
-            <img src="./image/电击小子.jpg" alt="" />
-            <h5>电击小子</h5>
-            <p>156人</p>
-          </a>
+              <img src="./image/电击小子.jpg" alt="" />
+              <h5>电击小子</h5>
+              <p>156人</p>
+            </a>
           </div>
 
         </div>
+        <p id="tishi">提示，本页面非官方网页，仅供学习交流使用</p>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
@@ -444,14 +434,20 @@
         spaceBetween: 20,
       });
     })();
+    //音乐播放器布局优化，自适应增加字幕空间
+    document.querySelector('.play-button').addEventListener('click', function () {
+      var lyricsElement = document.getElementById('lyrics');
+      lyricsElement.style.minHeight = '38px';
+    });
+
   </script>
-  <script>const lyrics = [{ startTime: 0, endTime: 5, text: "电击小子主题曲" }, { startTime: 5, endTime: 8, text: "提取于电击小子第一集" }, { startTime: 14.88, endTime: 17.24, text: "漫漫星空宇宙一望无际" }, { startTime: 17.24, endTime: 18.92, text: "美丽而神秘" }, { startTime: 19.44, endTime: 21.36, text: "高深莫测" }, { startTime: 21.36, endTime: 22.8, text: "多么叫人好奇" }, { startTime: 23.92, endTime: 25.08, text: "未来科幻世界" }, { startTime: 25.08, endTime: 25.92, text: "各样机械" }, { startTime: 25.92, endTime: 27.56, text: "我眼界大开" }, { startTime: 28.32, endTime: 32.04, text: "神奇的力量" }, { startTime: 32.04, endTime: 33.24, text: "很精彩" }, { startTime: 34.64, endTime: 35.52, text: "电击火光" }, { startTime: 35.52, endTime: 36.92, text: "闪 闪 闪 闪" }, { startTime: 36.92, endTime: 38.12, text: "真厉害" }, { startTime: 39.08, endTime: 39.92, text: "摇身一变" }, { startTime: 39.92, endTime: 41.08, text: "变 变 变 变" }, { startTime: 41.08, endTime: 43.44, text: "Electro Boy" }, { startTime: 43.44, endTime: 44.86, text: "来 吧 看 看" }, { startTime: 45.08, endTime: 46.08, text: "火星大力拳" }, { startTime: 46.08, endTime: 46.68, text: "呼啦呼啦" }, { startTime: 46.68, endTime: 47.96, text: "小子变身" }, { startTime: 47.96, endTime: 50.08, text: "对付大坏蛋" }, { startTime: 50.56, endTime: 52.64, text: "除暴安良" }, { startTime: 52.64, endTime: 54.96, text: "维持治安" }, { startTime: 55, endTime: 55.48, text: "呼啦呼啦" }, { startTime: 55.48, endTime: 57.12, text: "小子身手非凡" }, { startTime: 57.12, endTime: 58.96, text: "头脑不简单" }, { startTime: 59.48, endTime: 62.32, text: "勇敢又善良" }, { startTime: 63.72, endTime: 66.6, text: "心发热发亮" }], music = document.getElementById("music"); music.addEventListener("timeupdate", function () { const e = music.currentTime; var t = lyrics.find(t => e >= t.startTime && e < t.endTime); document.getElementById("lyrics").textContent = t ? t.text : "" });</script>
+  <script>const lyrics = [{ startTime: 0, endTime: 10, text: "电击小子主题曲" }, { startTime: 14.88, endTime: 17.24, text: "漫漫星空宇宙一望无际" }, { startTime: 17.24, endTime: 18.92, text: "美丽而神秘" }, { startTime: 19.44, endTime: 21.36, text: "高深莫测" }, { startTime: 21.36, endTime: 22.8, text: "多么叫人好奇" }, { startTime: 23.92, endTime: 25.08, text: "未来科幻世界" }, { startTime: 25.08, endTime: 25.92, text: "各样机械" }, { startTime: 25.92, endTime: 27.56, text: "我眼界大开" }, { startTime: 28.32, endTime: 32.04, text: "神奇的力量" }, { startTime: 32.04, endTime: 33.24, text: "很精彩" }, { startTime: 34.64, endTime: 35.52, text: "电击火光" }, { startTime: 35.52, endTime: 36.92, text: "闪 闪 闪 闪" }, { startTime: 36.92, endTime: 38.12, text: "真厉害" }, { startTime: 39.08, endTime: 39.92, text: "摇身一变" }, { startTime: 39.92, endTime: 41.08, text: "变 变 变 变" }, { startTime: 41.08, endTime: 43.44, text: "Electro Boy" }, { startTime: 43.44, endTime: 44.86, text: "来 吧 看 看" }, { startTime: 45.08, endTime: 46.08, text: "火星大力拳" }, { startTime: 46.08, endTime: 46.68, text: "呼啦呼啦" }, { startTime: 46.68, endTime: 47.96, text: "小子变身" }, { startTime: 47.96, endTime: 50.08, text: "对付大坏蛋" }, { startTime: 50.56, endTime: 52.64, text: "除暴安良" }, { startTime: 52.64, endTime: 54.96, text: "维持治安" }, { startTime: 55, endTime: 55.48, text: "呼啦呼啦" }, { startTime: 55.48, endTime: 57.12, text: "小子身手非凡" }, { startTime: 57.12, endTime: 58.96, text: "头脑不简单" }, { startTime: 59.48, endTime: 62.32, text: "勇敢又善良" }, { startTime: 63.72, endTime: 66.6, text: "心发热发亮" }], music = document.getElementById("music"); music.addEventListener("timeupdate", function () { const e = music.currentTime; var t = lyrics.find(t => e >= t.startTime && e < t.endTime); document.getElementById("lyrics").textContent = t ? t.text : "" });</script>
   <script>const fileName = "./music/电击小子 完整原版.mp3", audio = new Audio(fileName), progressBar = document.querySelector(".progress-bar"), progress = document.querySelector(".progress"), currentTime = document.querySelector(".current-time"), totalTime = document.querySelector(".total-time"), playButton = document.querySelector(".play-button"), image = (progress.addEventListener("click", function (t) { t = t.offsetX / progress.clientWidth, console.log(t), t *= audio.duration; audio.currentTime = t }), audio.addEventListener("timeupdate", function () { var t = audio.currentTime / audio.duration * 100; progressBar.style.width = t + "%", currentTime.textContent = formatTime(audio.currentTime), totalTime.textContent = formatTime(audio.duration) }), audio.addEventListener("ended", function () { playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused", console.log("音乐已经播放完毕！") }), audio.addEventListener("timeupdate", function () { var t = audio.currentTime / audio.duration * 100, t = (progressBar.style.width = t + "%", currentTime.textContent = formatTime(audio.currentTime), totalTime.textContent = formatTime(audio.duration), lyrics.find(t => audio.currentTime >= t.startTime && audio.currentTime < t.endTime)); document.getElementById("lyrics").textContent = t ? t.text : "" }), document.querySelector(".image")); function toggleAudio() { currentTime === totalTime && (playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused"), audio.paused ? (audio.play(), playButton.textContent = "暂停", playButton.classList.remove("paused"), image.style.animationPlayState = "running") : (audio.pause(), playButton.textContent = "播放", playButton.classList.add("paused"), image.style.animationPlayState = "paused") } function speedUpAnimation() { var t, e = window.getComputedStyle(image).animation.match(/(\d+)(s|ms)/); e && (t = parseFloat(e[1]), e = e[2], t = .8 * t, console.log(t), image.style.animationDuration = "" + t + e) } function formatTime(t) { var e = Math.floor(t / 60), t = Math.floor(t % 60); return e + ":" + (t = t < 10 ? "0" + t : t) } document.addEventListener("DOMContentLoaded", function (t) { document.querySelector(".image").style.animationPlayState = "paused" });</script>
   <script>
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
     } else {
-      window.location.href = './';  // 如果是电脑，重定向到根目录
+      window.location.href = './';  // 如果是电脑，重定向到
     }
     var toggleBtn = document.getElementById("toggle-btn"); function setTextColor() { var t = ["red", "#4CAF50", "rgb(0, 0, 0)", "rgb(111, 111, 2)"], e = t.indexOf(document.documentElement.style.getPropertyValue("--text-color")), e = t[(e + 1) % t.length]; document.documentElement.style.setProperty("--text-color", e), document.documentElement.style.setProperty("--button-color", e), localStorage.setItem("textColor", e) } var defaultColor, storedColor = localStorage.getItem("textColor"); storedColor ? (document.documentElement.style.setProperty("--text-color", storedColor), document.documentElement.style.setProperty("--button-color", storedColor)) : (defaultColor = "#4CAF50", document.documentElement.style.setProperty("--text-color", defaultColor), document.documentElement.style.setProperty("--button-color", defaultColor), localStorage.setItem("textColor", defaultColor)), toggleBtn.addEventListener("click", setTextColor);
 
