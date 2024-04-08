@@ -1,0 +1,110 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>网站统计信息</title>
+    <style>
+        .webinfo-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<p>lhc网站</p>
+    <h1>请求次数测试</h1>
+    <div class="webinfo">
+        <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">本站访客数：</div>
+            <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+        </div>
+        <div class="webinfo-item">
+            <div class="webinfo-site-name">本站总访问量：</div>
+            <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+        </div>
+    </div>
+
+    <script>
+
+
+        (function () {
+            var bszCaller, bszTag;
+
+            function ready(callback) {
+                if (document.readyState === "complete" || document.readyState === "interactive") {
+                    callback.call(document);
+                } else {
+                    document.addEventListener("DOMContentLoaded", function () {
+                        callback.call(document);
+                    });
+                }
+            }
+
+            bszCaller = {
+                fetch: function (url, callback) {
+                    var callbackName = "BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
+                    window[callbackName] = this.evalCall(callback);
+                    url = url.replace("=BusuanziCallback", "=" + callbackName);
+                    var scriptTag = document.createElement("script");
+                    scriptTag.type = "text/javascript";
+                    scriptTag.defer = true;
+                    scriptTag.src = url;
+                    document.getElementsByTagName("head")[0].appendChild(scriptTag);
+                },
+                evalCall: function (callback) {
+                    return function (data) {
+                        ready(function () {
+                            try {
+                                callback(data);
+                                scriptTag.parentElement.removeChild(scriptTag);
+                            } catch (error) {
+                                bszTag.hides();
+                            }
+                        });
+                    };
+                }
+            };
+
+
+
+
+            bszTag = {
+                bszs: ["site_pv", "page_pv", "site_uv"],
+                texts: function (data) {
+                    this.bszs.forEach(function (item) {
+                        var element = document.getElementById("busuanzi_value_" + item);
+                        if (element) {
+                            // 获取当前时间戳（毫秒）
+                            var times = Date.now();
+                            // element.innerHTML = parseInt(data[item]) + times -(712588501892/1000 );
+                            element.innerHTML = parseInt(data[item]) +4222
+                        }
+                    });
+                },
+                hides: function () {
+                    this.bszs.forEach(function (item) {
+                        var element = document.getElementById("busuanzi_container_" + item);
+                        if (element) {
+                            element.style.display = "none";
+                        }
+                    });
+                },
+                shows: function () {
+                    this.bszs.forEach(function (item) {
+                        var element = document.getElementById("busuanzi_container_" + item);
+                        if (element) {
+                            element.style.display = "inline";
+                        }
+                    });
+                }
+            };
+
+            bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (data) {
+                bszTag.texts(data);
+                bszTag.shows();
+            });
+        })();
+    </script>
+</body>
+
+</html>
