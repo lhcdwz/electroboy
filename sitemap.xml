@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.electroboy.cn/djxzlogo.png</loc>
+        <loc>https://www.electroboy.cn/image/djxzlogo.png</loc>
         <lastmod>2024-04-08</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
         <url>
-        <loc>https://www.electroboy.cn/djxzlogo.ico</loc>
+        <loc>https://www.electroboy.cn/image/djxzlogo.ico</loc>
         <lastmod>2024-04-08</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
