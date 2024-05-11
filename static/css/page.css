@@ -1,0 +1,6 @@
+.ten-page{ height:30px; text-align:center; padding-top:50px;}
+.ten-page a{ color:#696767; margin:10px; font-size:13px;}
+.ten-page .page-pre,.ten-page .page-next{ color:#0d9fba; padding:5px 10px 5px 10px; }
+.ten-page .page-pre{ background:url(http://www.hqftdm.com/en/images/common-icons.png) -35px -78px no-repeat; background-color:#0d9fba;}
+.ten-page .page-next{ background:url(http://www.hqftdm.com/en/images/common-icons.png) -65px -78px no-repeat; background-color:#0d9fba;}
+.ten-page .page-now{ border-bottom:2px solid #0d9fba; padding:0 2px;}

@@ -1,503 +1,330 @@
-<!-- @刘洪材编写 -->
-<!-- 2024年3月14日 -->
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta http-equiv="cache-control" content="no-siteapp">
-    <link rel="shortcut icon" href="./image/djxzlogo.png">
-    <title>电击小子网站</title>
+    <meta charset="utf-8">
+    <title>电击小子～</title>
+    <!-- 再次声明，非官方网站，这是介绍电击小子相关内容的一个网页 -->
+    <meta name="keywords" content="电击小子,电击，electroboy,电击小子网站,电击小子高清图片,电击百科,火星大力拳,雷霆电击光">
+    <meta name="description" content="欢迎访问电击小子网站,本网站是一个收集电击小子相关内容的网页,更多详细信息请访问我查看!">
+    <link rel="shortcut icon" href="./image/djxzlogo.png" type="image/x-icon" />
+    <link href="static/css/main.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            padding: 95px 6%;
-            background: linear-gradient(to right top, #ff1493, #2980b9);
-        }
-
-        h6 {
+        .slideshow {
+            max-width: 100%;
+            height: 500px;
+            width: 346px;
             position: relative;
-            z-index: -1;
-            top: calc(100% - 60px);
-            color: #555555ed;
-            position: fixed;
-            bottom: 5%;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
+            top: 420px;
+            left: 62px;
         }
 
-        .container {
-            display: flex;
-        }
-
-        .profile {
-            padding: 20px 30px;
-            height: 230px;
-            background: #FFFFFF;
-            text-align: center;
-            flex: 1 1 400px;
-            position: sticky;
-            top: 20px;
-            border-right: 2px solid #333333;
-        }
-
-        .profile h3 {
-            font-size: 20px;
-        }
-
-        .profile p {
-            color: #2980b9;
-            margin-bottom: 16px;
-            font-size: 15px;
-        }
-
-        .btn {
-            padding: 7px 20px;
-            border-radius: 5px;
-            background: #2980b9;
-            color: #FFFFFF;
-            font-size: 17px;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #333333;
-        }
-
-        .information {
-            padding: 20px 30px;
-            flex: 1 1 1000px;
-            background: #FFFFFF;
-        }
-
-        .title {
-            font-size: 25px;
-            color: #2980b9;
-            margin-bottom: 15px;
-        }
-
-        .about p {
-            font-size: 17px;
-            line-height: 2;
-            padding-bottom: 10px;
-            color: #777777;
-        }
-
-        .about .box-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .about .box-container .box {
-            flex: 1 1 250px;
-        }
-
-        .about .box-container .box h3 {
-            font-size: 15px;
-            padding: 10px 0;
-            color: #333333;
-        }
-
-        .about .box-container .box h3 span {
-            color: #777777;
-        }
-
-        .services {
-            padding: 20px 0;
-        }
-
-        .imgbox-container {
-            display: flex;
-        }
-
-        .imgbox-container .box {
-            flex: 1 1 17px;
-            text-align: center;
-            border-radius: 5px;
-            padding: 20px;
-            background: #eeeeee;
-            margin-right: 12px;
-        }
-
-        .imgbox-container .box img {
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
-        .imgbox-container .box h3 {
-            font-size: 15px;
-            color: #777777;
-        }
-
-        .skills .box-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills .box-container .box {
-            flex: 1 1 300px;
-        }
-
-        .skills .box-container .box:last-child {
-            margin-left: 12px;
-        }
-
-        .progress h3 {
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            color: #333333;
-            font-size: 15px;
-        }
-
-        .progress h3 span {
-            color: #777777;
-        }
-
-        .bar {
-            overflow: hidden;
-            border-radius: 50px;
-            height: 10px;
-            background: #eeeeee;
-        }
-
-        .bar span {
-            background: #2980b9;
-            height: 100%;
-            display: block;
-            border-radius: 50px;
-        }
-
-        .first {
-            width: 40%;
-        }
-
-        .second {
-            width: 40%;
-        }
-
-        .third {
-            width: 20%;
-        }
-
-        .fourth {
-            width: 70%;
-        }
-
-        .fifth {
-            width: 90%;
-        }
-
-        .sixth {
-            width: 75%;
-        }
-
-        .experience {
-            margin: 20px 0;
-        }
-
-        .experience .box-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .experience .box-container .box {
-            padding: 20px;
-            border-radius: 5px;
-            flex: 1 1 350px;
-            background: #eeeeee;
-        }
-
-        .experience .box-container .box span {
-            color: #2980b9;
-            font-size: 15px;
-        }
-
-        .experience .box-container .box h3 {
-            color: #333333;
-            font-size: 17px;
-            padding: 5px 0;
-        }
-
-        .experience .box-container .box p {
-            color: #777777;
-            line-height: 2;
-            font-size: 13px;
-        }
-
-        .contact .box-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .contact .box-container .box {
-            flex: 1 1 200px;
-            display: flex;
-        }
-
-        .contact .box-container .box i {
-            height: 40px;
-            width: 40px;
-            line-height: 40px;
-            font-size: 15px;
-            border-radius: 50%;
-            background: #2980b9;
-            color: #FFFFFF;
-            text-align: center;
-            margin-top: 14px;
-        }
-
-        .contact .box-container .box h3 {
-            font-size: 17px;
-            color: #333333;
-            padding-bottom: 5px;
-        }
-
-        .contact .box-container .box p {
-            font-size: 14px;
-            color: #777777;
-            line-height: 2;
-        }
-
-        .info {
-            padding-left: 10px;
-        }
-
-        .tishi {
-            width: 200px;
-
-            z-index: 9;
-            position: absolute;
-            top: 20;
-            left: 100;
-
-
-            cursor: pointer;
-        }
-
-        #movingImage {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100px;
-            z-index: 8;
-            cursor: pointer;
-            transform: scaleX(-1);
-        }
-    </style>
-
-
+      </style>
 </head>
 
 <body>
-    <img src="./image/djxz.gif" alt="" id="movingImage" onclick="toggleMusic()">
-    <!-- 文字提示 -->
-    <img src="./image/tishi.png" alt="" class="tishi" onclick="tishi()">
-    <!-- 触发播放音乐和暂停，触发运动和停止 -->
-    <!-- <img src="./image/djxz.gif" alt="" id="movingImage" onclick="toggleMovement()" style="position: absolute; transform: scaleX(-1); top: 0; left: 0; width: 100px; height: 100px; z-index: 8;"> -->
-
-    <audio id="backgroundMusic" src="./music/电击小子 完整原版.mp3" loop></audio>
-    <div class="container">
-
-        <div class="information">
-
-            <div class="about">
-                <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
-                        onclick="playAudio()"></h3>
-                <audio id="audioPlayer" src="./music/djxz.mp3"></audio>
-                <p>熊小光，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。绝招火星大力拳，雷霆电激光，电击保护盾</p>
-
-                <div class="box-container">
-                    <div class="box">
-                        <h3><span>年龄 : </span>10</h3>
-                        <h3><span>地址 : </span>中国</h3>
-                 
-                    </div>
-                    <div class="box">
-                        <h3><span>姓名 : </span>电击小子</h3>
-                        <h3><span>语言 : </span>中文, English</h3>
-                    
-                    </div>
-                </div>
+    <div class="top">
+        <div class="div1280">
+            <div class="link_chen">
+                <a href="">！！！非官方网站，仅展示电击小子相关内容</a>
             </div>
+            <img src="./image/djxzlogo.png" class="logo" alt="电击小子_ele电击文化科技集团">
+            <ul class="top_ul1 top_ul">
+                <li class="index-t1">
+                    <a href="">首页</a>
+                </li>
 
-            <div class="services">
-                <h3 class="title">电击小子相关网页</h3>
-                <div class="imgbox-container">
-                    <div class="box">
-                        <a href="https://www.electroboy.cn/embassy">
-                            <img src="./image/fix.png" alt="">
-                        </a>
-                        <h3>embassy</h3>
-                    </div>
-                    <div class="box">
-                        <a href="https://www.bilibili.com/video/BV1hx421y7Ug/?share_source=copy_web&vd_source=512690434e14e2022bb9a2d8baf5a232">
-                        <img src="./image/blbl.jpeg" alt="">
+                <li><a href="javascript:void();">人物介绍</a>
+                </li>
+
+                <li><a href="javascript:void();">影视</a>
+                    <ul class="t_ul">
+                        <li>
+                            <a href="tv.html">TV系列</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void();">音乐</a>
+                    <ul class="t_ul">
+
+                        <li><a href="music.html">《电击小子》音乐</a>
+                        <div class="t_line"></div>
+                        </li>
+                        <li><a href="music.html">《手足情深》音乐</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="top_ul2 top_ul">
+                <li><a href="javascript:void();">相关下载</a>
+                </li>
+                <li><a target="_blank" href="">友链</a>
+                    <ul class="t_ul">
+                        <li>
+                            <a
+                                href="https://baike.baidu.com/item/%E7%94%B5%E5%87%BB%E5%B0%8F%E5%AD%90/922365?fromModule=lemma_sense-layer#viewPageContent">百度百科</a>
+                            <div class="t_line"></div>
+                        </li>
+                        <li><a target="_blank" href="https://eboy.huijiwiki.com/">电击百科</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://qq.electroboy.cn">QQ群</a>
+
+                </li>
+                <li><a href="" target="_blank">项目地址</a>
+                    <ul class="t_ul">
+                        <li>
+                            <a href="https://github.com/lhcdwz/electroboy">GitHub</a>
+                            <div class="t_line"></div>
+                        </li>
+                        <li><a href="">Gitee（暂无）</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="return_top_index">
+        <img src="./image/dian.png" class="return_bg">
+        <img src="static/picture/return_top.png" class="return_top">
+    </div>
+
+
+    <div class="tp-banner-container" style="cursor: pointer;">
+        <div class="tp-banner">
+            <ul id="GetPPT" class="GetPPT">
+            </ul>
+        </div>
+    </div>
+    <div class="index1">
+        <div class="i1_title">
+            <div class="i1_title_h2">
+                <p>电击小子系列</p>
+                electro boy series
+            </div>
+        </div>
+      
+
+    <div class="index2">
+   
+        <div class="div1280">
+            <!-- <div class="m2_nbg">
+                <a class="m2_n1">
+                    熊小光，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。绝招火星大力拳，雷霆电击光
+                </a>
+            </div> -->
+            <div>
+                <img class="slideshow" id="slideshowImg" src="./image/海报2 HD.jpg" alt="Slideshow Image">
+              </div>
+
+            <ul class="i2_list">
+
+                <li class="i2l0">
+                    <div class="i2_date">
+                        <h3>电击小子</h3>
+                        百科
+                    </div> <a class="i2_contet"
+                        href="https://baike.baidu.com/item/%E7%94%B5%E5%87%BB%E5%B0%8F%E5%AD%90/922365" target="_blank">
+                        <h2>电击小子</h2>
+                        <p> 《电击小子》是广州奥飞文化传播有限公司出品的系列动画，总共三部，分为《电击小子1》《电击小子2》和《电击小子3》
+                            [1]，三部加起来总共有78集，改编自山猫的同名漫画《电击小子》。2009年初，动画在中央电视台少儿频道首播；紧接着在2009年12月份到2010年的2月份，在中国四大卡通频道及近20家省级少儿频道安排全面播出。
+                        </p>
                     </a>
-                        <h3>哔哩哔哩</h3>
-                        
-                    </div>
-                    <div class="box">
-                        <a href="https://github.com/lhcdwz/electroboy">
-                          <img src="http://nocturne.bczcdn.com/file/1645598219832_4197/icon-3.png" alt="">
-                        </a>
-                          <h3>项目源码</h3>
-                       
-                      </div>
-                    <div class="box">
-                        <a href="https://qq.electroboy.cn/" alt="">
-                            <img src="./image/djxzqq.png" alt="">
-                        </a>
-                        <h3>QQ群</h3>
-                    </div>
-                    <!-- <div class="box">
-                        <img src="http://nocturne.bczcdn.com/file/1645598226940_86454/icon-5.png" alt="">
-                        <h3>SQL</h3>
-                    </div>
-                    <div class="box">
-                        <img src="http://nocturne.bczcdn.com/file/1645598230253_49248/icon-6.png" alt="">
-                        <h3>C++</h3>
-                    </div> -->
-                </div>
+                </li>
+
+                <li class="i2l1">
+                    <div class="i2_date">
+                        <h3>电击小子</h3>
+                        S1
+                    </div> <a class="i2_contet" href="https://tv.cctv.cn/2013/03/13/VIDA1363161478555346.shtml"
+                        target="_blank">
+                        <h2>首发，电击小子来了！！！</h2>
+                        <p>小光是胡桃镇上一个乖巧的小学五年级学生，他一家为了得到一部最新出品的游戏机而参加了宾奇先生主持的有奖电视游戏节目。宾奇先生带他们一家到了一幢神秘鬼屋，但大屋内没有鬼魂，只有大坏蛋果仁大盗！
+                        </p>
+                    </a>
+                </li>
+                <li class="i2l2">
+                    <div class="i2_date">
+                        <h3>电击小子</h3>
+                        S2
+                    </div> <a class="i2_contet" href="https://tv.cctv.cn/2013/03/13/VIDA1363161478555346.shtml"
+                        target="_blank">
+                        <h2>承接第1季第剧情，电击小子2来了！！！</h2>
+                        <p>小光与卡比成功将路比送回未来，但是却遇到了新的敌人——沙宝拉查，讲述了电击小子与卡比一次次阻止了沙宝拉查的阴谋，沙宝拉查屡次捉拿卡比也不成功。最后竟然用自己的基地制造出一个巨大的武器，希望能对付电击小子和卡比，于是电击小子与沙宝拉查展开了一场世纪大战。
+                        </p>
+                    </a>
+                </li>
+
+                <li class="i2l3">
+                    <div class="i2_date">
+                        <h3>电击小子</h3>
+                        S3
+                    </div> <a class="i2_contet"
+                        href="https://tv.cctv.cn/2016/04/27/VIDAneheeEIo2Jvh86oYSQQv160427.shtml" target="_blank">
+                        <h2>承接第二季剧情，《电击小子3》最新发布！！！</h2>
+                        <p> 然而他们不但要提升自己的能力，更要穿越时空，奋力阻止时空海盗“四圣团”作恶。在此过程中，电击小子和伙伴们凭着自身努力和各种神奇武器，实力不断提升。同时小光等人也渐渐领悟到成长的真谛，面对挫折永不放弃。电击小子等人经历了“龙城镇”与“桃花岛”的重重磨难后，一次又一次帮助人们化解危险，成功保卫了未来时空不受“四圣团”破坏。
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="index4">
+        <div class="i4_title">
+            <div class="i4_title_h2">
+                <p>电击小子相关图片展示</p>
+                electroboy Related Image Display
             </div>
+        </div>
+        <div class="div1280">
+            <div class="i4_lunbo">
+                <div id="sildes" style="overflow: hidden; position: relative;">
+                    <div class="container">
+                        <div class="control" style="overflow: hidden; position: relative; display: block;">
+                            <ul class="change" style="position: relative; width: 3390px; left: -1130px;">
 
-            <div class="skills">
-                <h3 class="title">开发使用了</h3>
-                <div class="box-container">
-                    <div class="box">
-                        <div class="progress">
-                            <h3>Html <span>40%</span></h3>
-                            <div class="bar"><span class="first"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Css <span>40%</span></h3>
-                            <div class="bar"><span class="second"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Javascript <span>20%</span></h3>
-                            <div class="bar"><span class="third"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Photoshop <span>70%</span></h3>
-                            <div class="bar"><span class="fourth"></span></div>
-                        </div>
-                    </div>
-                    <!-- <div class="box">
-                        <div class="progress">
-                            <h3>Web Design <span>90%</span></h3>
-                            <div class="bar"><span class="fifth"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Graphic Design <span>75%</span></h3>
-                            <div class="bar"><span class="sixth"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>App Design <span>65%</span></h3>
-                            <div class="bar"><span class="third"></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Digital Marketing <span>70%</span></h3>
-                            <div class="bar"><span class="fourth"></span></div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+                                <!-- 1 -->
+                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
+                                    <div class="imgWrap">
+                                        <a href="" title="undefined" target="_blank">
+                                            <img src="./image/xxg hd.jpg" alt="undefined">
+                                        </a>
+                                    </div>
+                                </li>
+                                <!-- 2 -->
+                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
+                                    <div class="imgWrap">
+                                        <a href="" title="undefined" target="_blank">
+                                            <img src="./image/djxz hd.jpg" alt="undefined">
+                                        </a>
+                                    </div>
+                                </li>
+                                <!-- 3 -->
+                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
+                                    <div class="imgWrap">
+                                        <a href="" title="undefined" target="_blank">
+                                            <img src="./image/lubi.jpg" alt="undefined">
+                                        </a>
+                                    </div>
+                                </li>
+                                <!-- 4 -->
+                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
+                                    <div class="imgWrap">
+                                        <a href="" title="undefined" target="_blank">
+                                            <img src="./image/djxz01.jpg" alt="undefined">
+                                        </a>
+                                    </div>
+                                </li>
+                                <!-- 5 -->
+                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
+                                    <div class="imgWrap">
+                                        <a href="" title="undefined" target="_blank">
+                                            <img src="./image/djxz02.jpg" alt="undefined">
+                                        </a>
+                                    </div>
+                                </li>
 
-            <div class="experience">
-                <h3 class="title">关于<img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
-                        onclick="playAudio2()"></h3>
-                <audio id="audioPlayer2" src="./music/jieshao.mp3"></audio>
+                            </ul>
 
-                <div class="box-container">
-                    <div class="box">
-                        <span>2024年5月11日</span>
-                        <h3>搭建完成</h3>
-                        <p>本页面搭建于GitHub</p>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact">
-                <h3 class="title">联系我们</h3>
-                <div class="box-container">
-                    <div class="box">
-                        <!-- <i class="fas fa-map"img src="./1.png" alt=""></i> -->
-                        <div class="fas fa-map">
-                            <img src="./image/djxzqq.png" alt="" width="50" height="50" style="border-radius: 50%;">
+                            <a hidefocus="true" class="prev"><span>Prev</span></a>
+                            <a hidefocus="true" class="next"><span>Next</span></a>
                         </div>
 
-                        <div class="info">
-                            <h3>QQ群</h3>
-                            <p>364310663</p>
+                        <!-- 小图 -->
+                        <div class="thumbWrap">
+                            <div class="thumbCont">
+                                <ul id="produc_ul"
+                                    style="height: 544px; width: 100%; position: absolute; left: 0px; top: 2px;">
+                                    <li class="">
+                                        <img src="./image/xxg hd.jpg" alt="电击小子图片加载失败咯">
+                                    </li>
+                                    <li class="">
+                                        <img src="./image/djxz.jpg" alt="电击小子图片加载失败咯">
+                                    </li>
+                                    <li class="">
+                                        <img src="./image/lubi.jpg" alt="电击小子图片加载失败咯">
+                                    </li>
+                                    <li class="">
+                                        <img src="./image/djxz01.jpg" alt="电击小子图片加载失败咯">
+                                    </li>
+                                    <li class="">
+                                        <img src="./image/djxz02.jpg" alt="电击小子图片加载失败咯">
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 按钮 -->
+                            <a href="https://www.hqftdm.com/#Prev" hidefocus="true"
+                                class="thumbPrev"><span>Up</span></a><a href="https://www.hqftdm.com/#Next"
+                                hidefocus="true" class="thumbNext"><span>Down</span></a>
                         </div>
                     </div>
-                    <div class="box">
-                        <i class="fas fa-phone"></i>
-                        <div class="info">
-                            <h3>qq</h3>
-                            <p>1234567890</p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <i class="fas fa-envelope"></i>
-                        <div class="info">
-                            <h3>Email</h3>
-                            <p>zzz</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <h6>出于需要，我们购买“electroboy.cn”作为域名。但是这个网站不是官方网站哦。</h6>
+<img src="./image/djxz.gif" alt="跑步的电击小子" id="movingImage" onclick="toggleMusic()">
+    <div class="bottom">
+        <a href="">关于电击小子</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="http://qq.electroboy.cnl">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="http://qq.electroboy.cn">加入我们</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="">ele电击</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="">电击小子网站</a>
+     
+        <img src="./image/djxzlogo.png">
+        <p id="year"></p>
 
-</body>
+    </div>
 
-<!-- <script>
-    var image = document.getElementById('movingImage');
-    var position = 0;
-    // var position = window.innerWidth * 0.1; // 初始位置在屏幕宽度的20%处
-    var speed = 1; // 每帧移动的像素数
-    var viewportWidth = window.innerWidth;
-    var movingRight = true; // 初始移动方向为向右
-
-    function moveImage() {
-        if (movingRight) {
-            position += speed;
-            image.style.left = position + 'px';
-            if (position >= viewportWidth * 0.8) {
-                movingRight = false; // 到达当前视口宽度的80%时，改变移动方向为向左
-                image.style.transform = "scaleX(1)"; // 取消镜像效果
-            }
-        } else {
-            position -= speed;
-            image.style.left = position + 'px';
-            // if (position <= viewportWidth * 0.1) {
-            if (position <= 0) {
-                movingRight = true; // 到达初始位置时，改变移动方向为向右
-                image.style.transform = "scaleX(-1)"; // 添加镜像效果
+<script>
+    function adjustZoom() {
+        // 获取屏幕宽度
+        var screenWidth = window.screen.width;
+    
+        // 获取窗口宽度
+        var windowWidth = window.innerWidth;
+    
+        // 计算窗口宽度占屏幕宽度的百分比
+        var percentage = (windowWidth / screenWidth) * 100;
+    
+        // 定义缩放比例
+        var zoomLevel = 1;
+    
+        // 使用循环动态计算缩放比例
+        for (var i = 0; i <= 50; i++) {
+            if (percentage < (100 - i * 1)) {
+                zoomLevel = 1 - i * 0.01;
             }
         }
-        requestAnimationFrame(moveImage);
+        // 更加精细的步进
+        // for (var i = 0; i <= 500; i++) {
+        //     if (percentage < (100 - i * 0.1)) {
+        //         zoomLevel = 1 - i * 0.001;
+        //     }
+        // }
+    
+        // 设置缩放比例
+        document.body.style.zoom = zoomLevel;
+    
+        // 打印结果到控制台
+        console.log('窗口宽度占屏幕宽度的百分比为: ' + percentage + '%，设置缩放比例为: ' + zoomLevel);
     }
+    
+    // 在窗口大小发生变化时调整缩放
+    window.addEventListener('resize', adjustZoom);
+    
+    // 页面加载时进行一次初始的调整
+    adjustZoom();
+    
+</script>
 
-    requestAnimationFrame(moveImage);
-</script> -->
+
 <script>
-     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      window.location.href = 'mobile';
-    }
 
     function tishi() {
 
@@ -510,12 +337,31 @@
     var image = document.getElementById('movingImage');
     // 初始化位置、速度、屏幕宽度、移动方向和动画间隔
     var position = 0;
-    var speed = 1;
+    var speed = 3;
     var viewportWidth = window.innerWidth;
     var movingRight = true;
     var movementInterval;
 
+// 读取当前页面的缩放比例并打印
+function printZoomLevel() {
+    var zoomLevel = document.body.style.zoom;
+    if (zoomLevel) {
+        console.log("当前页面的缩放比例为: " + parseFloat(zoomLevel));
+    } else {
+        console.log("当前页面未设置缩放比例");
+    }
+}
+// 移动图片的函数
+function moveImage() {
+    var viewportWidth = window.innerWidth; // 动态获取窗口宽度
+    var zoomLevel = getZoomLevel(); // 获取页面缩放比例
+    var actualViewportWidth = viewportWidth / zoomLevel; // 考虑页面缩放后的视口宽度
+
+    // 其他移动逻辑代码...
+}
+
     // 移动图片的函数
+    
     function moveImage() {
         var viewportWidth = window.innerWidth; // 动态获取窗口宽度
         console.log("屏幕宽度: " + viewportWidth); // 添加打印语句 
@@ -524,25 +370,25 @@
                 position += speed;
                 image.style.left = position + 'px';
 
-                if (position >= viewportWidth * 0.85) {
-                    console.log("计算: " + viewportWidth * 0.85); // 添加打印语句 
-                    console.log("Current position: " + position); // 添加打印语句   
-                    movingRight = false;
-                    image.style.transform = "scaleX(1)";
-                }
-            } else {
-                position -= speed;
-                image.style.left = position + 'px';
-                if (position <= viewportWidth * 0.05) {
-                    console.log("计算: " + viewportWidth * 0.05); // 添加打印语句 
-                    console.log("Current position: " + position); // 添加打印语句
-                    movingRight = true;
-                    image.style.transform = "scaleX(-1)";
-                }
+                if (position >= actualViewportWidth * 0.95) {
+                console.log("计算: " + actualViewportWidth * 0.85); // 添加打印语句 
+                console.log("Current position: " + position); // 添加打印语句   
+                movingRight = false;
+                image.style.transform = "scaleX(1)";
             }
-            movementInterval = requestAnimationFrame(moveImage);
+        } else {
+            position -= speed;
+            image.style.left = position + 'px';
+            if (position <= actualViewportWidth * 0.05) {
+                console.log("计算: " + actualViewportWidth * 0.05); // 添加打印语句 
+                console.log("Current position: " + position); // 添加打印语句
+                movingRight = true;
+                image.style.transform = "scaleX(-1)";
+            }
         }
+        movementInterval = requestAnimationFrame(moveImage);
     }
+}
 
     // 启动移动
     function startMovement() {
@@ -563,10 +409,7 @@
         }
     }
 
-    // 获取音乐元素和音乐播放状态
-    var music = document.getElementById('backgroundMusic');
-    var isPlaying = false;
-
+ 
 
     function toggleMusic() {
         // 隐藏提示图片
@@ -574,14 +417,7 @@
         for (var i = 0; i < images.length; i++) {
             images[i].style.display = 'none';
         }
-        // 切换音乐播放状态   
-        if (isPlaying) {
-            music.pause();
-        } else {
-            music.play();
-        }
-        isPlaying = !isPlaying;
-
+       
         // 同时切换图片移动状态
         if (movementInterval) {
             stopMovement();
@@ -592,6 +428,23 @@
 </script>
 
 <script>
+    let container = document.querySelector('.imgbox-container');
+    let images = document.querySelectorAll('.imgbox-container .box');
+    let imageWidth = images[0].offsetWidth;
+    let totalWidth = images.length * imageWidth;
+    let scrollDirection = 1;
+    let currentScroll = 0;
+
+    function scrollContainer() {
+        currentScroll += scrollDirection;
+        if (currentScroll >= totalWidth || currentScroll < 0) {
+            scrollDirection = -scrollDirection;
+        }
+        container.scrollLeft = Math.abs(currentScroll % totalWidth);
+    }
+
+    setInterval(scrollContainer, 10);
+
     function tupian() {
         // 隐藏提示图片
         var images = document.getElementsByClassName('tishi');
@@ -600,16 +453,94 @@
         }
     }
 
-    // 播放语音1-2
-    function playAudio() {
-        var audio = document.getElementById("audioPlayer");
-        audio.play();
-    }
-
-    function playAudio2() {
-        var audio = document.getElementById("audioPlayer2");
-        audio.play();
-    }
 </script>
+
+    <script src="static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="static/js/uaredirect1.js" type="text/javascript"></script>
+
+    <!-- 重定向 -->
+    <script type="text/javascript">uaredirect("https://www.electroboy.cn/mobile");</script>
+
+    <script src="static/js/global.js" type="text/javascript"></script>
+    <script src="static/js/WebData.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="static/js/index.js"></script>
+    <script type="text/javascript" src="static/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="static/js/carousel.js"></script>
+    <script src="static/js/slides-1.1.1-min.js"></script>
+
+    <script>
+        let imagess = ["./image/海报1.jpg", "./image/海报4.jpg", "./image/海报7.jpg"]; // 图片数组
+        let currentImageIndex = 0; // 当前显示的图片索引
+    
+        function changeImage() {
+          document.getElementById('slideshowImg').src = imagess[currentImageIndex]; // 切换图片
+          currentImageIndex = (currentImageIndex + 1) % imagess.length; // 更新索引
+        }
+    
+        setInterval(changeImage, 1000); // 每3秒切换一次图片
+      </script>
+
+    <script>
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth() + 1; // 月份从 0 开始，所以要加 1
+        var day = currentDate.getDate();
+        document.getElementById("year").innerText = "非官方网站，仅展示电击小子相关内容！！！ " + "Copyright© " + year + "年" + month + "月" + day + "日";
+
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://www.electroboy.cn";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            getIndexBanner();
+            getNewsList1();
+            getNewsIndexLeft();
+            getIndexProduct();
+            // getIndexVedio();
+        }
+        )
+    </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            $('.GetPPT li').click(function () {
+                var alink = $(this).attr("date-a");
+                if (alink != "" && alink != "null")
+                    window.open(alink);
+            });
+
+            jQuery('.tp-banner').revolution({
+                delay: 4000,
+                startwidth: 1300,
+                startheight: 664,
+                hideThumbs: 10,
+                fullWidth: "on",
+                forceFullWidth: "on",
+                onHoverStop: "on",
+                navigationType: "none"
+            });
+
+            Carousel.init($(".pictureSlider"));
+            $('#sildes').olvSlides(
+                {
+                    thumb: true,
+                    thumbPage: true,
+                    thumbDirection: "Y",
+                    effect: 'fade'
+                }
+            );
+        })
+    </script>
+
+</body>
 
 </html>
