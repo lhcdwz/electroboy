@@ -639,6 +639,11 @@
                 offsetY = e.clientY - document.getElementById('controlPanel').offsetTop;
             }
         }
+        // 音量
+        function adjustVolume(e) {
+            var volumeSlider = document.getElementById('volumeSlider');
+            audio.volume = e.target.value;
+        }
 
         var audio = document.getElementById('audioPlayer');
         var isPlaying = false;
