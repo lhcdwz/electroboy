@@ -1,4 +1,4 @@
-<!-- @刘洪材编写 -->
+<!-- @lhc -->
 <!-- 2024年3月14日 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -6,10 +6,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./image/djxzlogo.ico" type="image/x-icon"/>
-  <title>电击小子网站</title>
+  <title>电击小子～</title>
+  <!-- 再次声明，非官方网站，这是介绍电击小子相关内容的一个网页 -->
+  <meta name="keywords" content="电击小子,电击，electroboy,电击小子网站,电击小子高清图片,电击百科,火星大力拳,雷霆电击光">
+  <meta name="description" content="欢迎访问电击小子网站,本网站是一个收集电击小子相关内容的网页,更多详细信息请访问我查看!">
+  <link rel="shortcut icon" href="./image/djxzlogo.ico" type="image/x-icon" />
+
   <link rel="stylesheet" href="./css/normalize.css" />
-  <!-- 先引入css文件 放到自己css文件的上面 -->
   <link rel="stylesheet" href="./css/swiper.min.css" />
   <link rel="stylesheet" href="./css/index.css" />
   <style>
@@ -53,8 +56,22 @@
       font-family: alishuhei, serif
     }
 
+    @font-face {
+    font-family: "AlibabaPuHuiTi";
+    font-weight: 400;
+    src:
+        /* 在线字体1 */
+        url('https://timgcn.shining3d.com/font/ttf/AlibabaPuHuiTi-2-95-ExtraBold.ttf') format('truetype'),
+
+        /* 在线字体2 */
+        url('https://cdnimgcn.shining3d.com//font/ttf/AlibabaPuHuiTi-2-95-ExtraBold.ttf') format('truetype'),
+
+        /* 备用字体，防止在线字体失效,2个字体都失效才加载，如果连这个都失效那就没办法了 */
+        url('../font/AlibabaPuHuiTi-2-105-Heavy.ttf') format('truetype');
+    }
     body {
-      /* font-family: Ali, sans-serif; */
+      font-family: 'AlibabaPuHuiTi', Arial, sans-serif;
+       /* 字体全部失效就用系统默认字体 */
       line-height: 1;
       font-weight: lighter;
       background-color: #f5f5f5
@@ -274,17 +291,52 @@
     <!-- go模块 -->
     <section class="go">
       <a href="https://qq.electroboy.cn/" class="item">
-        <img src="./image/go.png" alt="QQ群364310663" />
+        <img src="./image/go.webp" alt="QQ群364310663" />
       </a>
     </section>
   </section>
 
   <section class="content">
+    <!-- 头部  电击小子，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。
+
+      年龄 : 10
+      地址 : 中国
+      姓名 : 电击小子
+      语言 : 中文, English -->
+
     <div class="about">
       <h3 class="title">电击小子 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
           onclick="playAudio()"></h3>
       <audio id="audioPlayer" src="./music/jieshao.mp3"> </audio>
-      <p>熊小光，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。绝招火星大力拳，雷霆电激光，电击保护盾</p>
+      <p>
+        《电击小子》是广州奥飞文化传播有限公司出品的系列动画，总共三部，分为《电击小子1》《电击小子2》和《电击小子3》，三部加起来总共有78集，改编自山猫的同名漫画《电击小子》。2009年初，动画在中央电视台少儿频道首播；紧接着在2009年12月份到2010年的2月份，在中国四大卡通频道及近20家省级少儿频道安排全面播出。
+                           
+      <div class="box-container">
+        <div class="box">
+          <h3><span>年龄 : </span>10</h3>
+          <h3><span>地址 : </span>中国</h3>
+        </div>
+        <div class="box">
+          <h3><span>姓名 : </span>熊小光(电击小子)</h3>
+          <h3><span>语言 : </span>中文, English</h3>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="imgbox-container">
+      <img src="./image/xxg.webp" alt="">
+      <img src="./image/djxz.webp" alt="">
+      <!-- <img src="./image/djxzqq.png" alt=""> -->
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="about">
+      <h3 class="title">熊小光 <img src="./image/shengying.png" alt="" height="40px" style="display: inline;"
+          onclick="playAudio()"></h3>
+      <audio id="audioPlayer" src="./music/jieshao.mp3"> </audio>
+      <p>熊小光，他是胡桃镇上五年级小学生，他有好奇心、勇敢又善良、同时极富正义感。他能变身成为电击小子。变身后对抗心怀不轨的坏蛋。绝招火星大力拳，雷霆电击光，雷霆电击刀，电击保护盾。</p>
 
       <div class="box-container">
         <div class="box">
@@ -300,8 +352,8 @@
 
     </div>
     <div class="imgbox-container">
-      <img src="./image/电击小子.jpg" alt="">
-      <img src="./image/电击小子2.jpg" alt="">
+      <img src="./image/xxg.webp" alt="">
+      <img src="./image/djxz.webp" alt="">
       <!-- <img src="./image/djxzqq.png" alt=""> -->
     </div>
   </section>
@@ -321,7 +373,7 @@
       <div class="container">
         <!-- <h2 class="font2">电击小子 完整原版.mp3</h2> -->
         <div class="image">
-          <img src="./image/djxz dvd.png" alt="很明显电击小子图片加载失败了">
+          <img src="./image/djxz dvd.webp" alt="很明显电击小子图片加载失败了">
         </div>
 
         <!-- 歌词 -->
@@ -364,7 +416,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <a href="https://qq.electroboy.cn/">
-              <img src="./image/qq.jpg" alt="加入我们" />
+              <img src="./image/qq.webp" alt="加入我们" />
               <h5>加入QQ群</h5>
               <p>15次点击</p>
             </a>
@@ -372,7 +424,7 @@
 
           <div class="swiper-slide">
             <a href="https://qq.electroboy.cn/">
-              <img src="./image/电击小子.jpg" alt="" />
+              <img src="./image/djxz.webp" alt="" />
               <h5>电击小子</h5>
               <p>156人</p>
             </a>
@@ -380,7 +432,7 @@
 
           <div class="swiper-slide">
             <a href="https://qq.electroboy.cn/">
-              <img src="./image/电击小子.jpg" alt="" />
+              <img src="./image/xxg.webp" alt="" />
               <h5>电击小子</h5>
               <p>156人</p>
             </a>
