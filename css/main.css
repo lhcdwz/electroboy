@@ -1,3 +1,9 @@
+.ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 限制为3行 */
+    -webkit-box-orient: vertical; /* 设置为垂直方向 */
+    overflow: hidden; /* 隐藏超出的内容 */
+  }
 /* 首页海报 */
 .slideshow {
     max-width: 100%;
@@ -239,7 +245,7 @@ body {
     max-width: 1920px;
     min-width: 1280px;
     overflow-x: hidden;
-    background: url(../image/body_bg.png) repeat-y center;
+    /* background: url(../image/body_bg.png) repeat-y center; */
 }
 
 /* 当页面宽度小于1280px时，显示水平滚动条 */
@@ -1146,22 +1152,13 @@ p {
     width: 482px;
     height: 454px;
     position: absolute;
-    top: 470px;
+    top: 410px;
     left: 0px;
-    background: url(../image/电击小子海报2.png) no-repeat;
+    background: url(../image/电击小子海报2.webp) no-repeat;
     background-size: 455px auto;
     z-index: 50;
 }
-.m2_nbg0 {
-    width: 482px;
-    height: 454px;
-    position: absolute;
-    top: 470px;
-    left: 0px;
-    /* background: url(../image/电击小子海报2.png) no-repeat; */
-    background-size: 455px auto;
-    z-index: 50;
-}
+
 
 .m2_nbg .m2_n1 {
     display: block;
@@ -1176,19 +1173,7 @@ p {
     line-height: 25px;
     overflow: hidden;
 }
-.m2_nbg0 .m2_test {
-    display: block;
-    color: #61cef8;
-    font-size: 20px;
-    text-align: center;
-    position: absolute;
-    top: 465px;
-    left: 65px;
-    width: 360px;
-    height: 60px;
-    line-height: 25px;
-    overflow: hidden;
-}
+
 
 .m2_nbg .nbg_img1 {
     position: absolute;
@@ -7077,14 +7062,14 @@ Z .i2_list {
 
 .prev {
     left: 0;
-    background: url(https://electroboy.cn/images-thumb/arrows_01.png) no-repeat;
+    /* background: url(https://electroboy.cn/images-thumb/arrows_01.png) no-repeat; */
     _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src="https://electroboy.cn/images-thumb/arrows_01.png");
     _background: none;
 }
 
 .next {
     right: 0;
-    background: url(https://electroboy.cn/images-thumb/arrows_02.png) no-repeat;
+    /* background: url(https://electroboy.cn/images-thumb/arrows_02.png) no-repeat; */
     _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src="https://electroboy.cn/images-thumb/arrows_02.png");
     _background: none;
 }

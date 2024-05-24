@@ -25,6 +25,14 @@ a {
   font-size: 0.933333rem;
   color: #1c1c1c;
 }
+
+/* CSS 文件或 `<style>` 标签内 */
+.header-img {
+  display: inline-block; /* 将图片设置为行内块级元素，使其与文字在同一行 */
+  width: 20px; /* 设置图片宽度 */
+  height: auto; /* 高度自动调整，保持原图宽高比 */
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -77,6 +85,8 @@ a {
   font-size: 0.586667rem;
   color: #999999;
 }
+
+header-img
 .get_job_focus {
   position: relative;
 }
