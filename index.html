@@ -695,12 +695,28 @@
                 name: '雷霆电击光'
             },
             {
-                src: './audio/变身.mp3',
-                name: '变身'
+                src: './audio/变身V1.0.mp3',
+                name: '变身V1.0'
             },
             {
-                src: './audio/变身2.mp3',
-                name: '变身V2.0'
+                src: './audio/变身V1.1.mp3',
+                name: '变身V1.1'
+            },
+            {
+                src: './audio/变身V3.0.mp3',
+                name: '变身V3.0'
+            },
+            {
+                src: './audio/变身V3.1.mp3',
+                name: '变身V3.1'
+            },
+            {
+                src: './audio/介绍V3.0.mp3',
+                name: '介绍V3.0'
+            },
+            {
+                src: './audio/介绍V3.1.mp3',
+                name: '介绍V3.1'
             },
         ];
 
@@ -720,7 +736,7 @@
             var randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * audioFiles.length);
-            } while (randomIndex === lastPlayedIndex || (audioFiles[randomIndex].name !== '火星大力拳' && audioFiles[randomIndex].name !== '雷霆电击光' && audioFiles[randomIndex].name !== '变身' && audioFiles[randomIndex].name !== '变身V2.0'));
+            } while (randomIndex === lastPlayedIndex || (audioFiles[randomIndex].name !== '火星大力拳' && audioFiles[randomIndex].name !== '雷霆电击光' && audioFiles[randomIndex].name !== '变身V1.0' && audioFiles[randomIndex].name !== '变身V1.1' && audioFiles[randomIndex].name !== '变身V3.0' && audioFiles[randomIndex].name !== '变身V3.1' && audioFiles[randomIndex].name !== '介绍V3.0' && audioFiles[randomIndex].name !== '介绍V3.1'));
 
             lastPlayedIndex = randomIndex;
 
