@@ -9,6 +9,25 @@
     <meta name="description" content="欢迎访问电击小子网站,本网站是一个收集电击小子相关内容的网页,更多详细信息请访问我查看!">
     <link rel="shortcut icon" href="./image/djxzlogo.ico" type="image/x-icon" />
     <link href="css/main.css" rel="stylesheet">
+	<!-- <link href="http://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet" type="text/css"> -->
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .image-map {
+            position: relative;
+            margin: 0 10px;
+            /* 为了在左右两边添加空隙 */
+        }
+
+        .clickable-area {
+            position: absolute;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
 
 </head>
 
@@ -55,20 +74,8 @@
 
             <ul class="top_ul2 top_ul">
                 <li><a href="javascript:void();">相关下载</a>
-                    <ul class="t_ul">
-
-                        <li><a href="cheyan.html">电击小子测验卷</a>
-                            <div class="t_line"></div>
-                        </li>
-                
-                        <li><a href="poster.html">电击小子海报</a>
-                            <!-- <div class="t_line"></div> -->
-                        </li>
-                    </ul>
                 </li>
-                
-                <li>
-                    <a target="_blank" href="">友链</a>
+                <li><a target="_blank" href="">友链</a>
                     <ul class="t_ul">
                         <li>
                             <a
@@ -78,39 +85,21 @@
                         <li><a target="_blank" href="https://eboy.huijiwiki.com/">电击百科</a></li>
                     </ul>
                 </li>
+                <li><a href="http://qq.electroboy.cn">QQ群</a>
 
-
-
-                <li><a href="javascript:void();">QQ群</a>
-                    <ul class="t_ul">
-
-                        <li><a href="https://qq.electroboy.cn">电击小子交流群</a>
-                            <div class="t_line"></div>
-                        </li>
-                        
-                        <li><p>QQ群:364310663</p></li>
-                    
-                    </ul>
                 </li>
-                
                 <li><a href="" target="_blank">项目地址</a>
                     <ul class="t_ul">
                         <li>
                             <a href="https://github.com/lhcdwz/electroboy">GitHub</a>
                             <div class="t_line"></div>
                         </li>
-                        <li><a href="">项目介绍</a></li>
+                        <li><a href="">Gitee（暂无）</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-
-    <!-- <div class="return_top_index">
-        <img src="./image/dian.webp" class="return_bg">
-        <img src=".picture/return_top.webp" class="return_top">
-    </div> -->
-
 
     <div class="tp-banner-container" style="cursor: pointer;">
         <div class="tp-banner">
@@ -119,204 +108,28 @@
         </div>
     </div>
     <div class="index1">
-        <div class="i1_title">
-            <div class="i1_title_h2">
+        <div class="i1_title2" >
+            <div class="i1_title2_h2" style="position: relative;">
                 <p>电击小子系列</p>
                 electro boy series
             </div>
         </div>
 
-
-        <div class="index2">
-            <div class="div1280">
-                <div class="m2_nbg" onclick="playRandomMusic()">
-                    <a class="m2_n1">
-                        绝招：火星大力拳，雷霆电击光，电击保护盾，雷霆电击刀，电击飞毛腿
-                    </a>
-                </div>
-                <!-- <div>
-                    <img class="slideshow" id="slideshowImg" src="" alt="Slideshow Image">
-                </div> -->
-
-                <ul class="i2_list">
-
-                    <li class="i2l0">
-                        <div class="i2_date"
-                            onclick="window.location.href='https://baike.baidu.com/item/%E7%94%B5%E5%87%BB%E5%B0%8F%E5%AD%90/922365'">
-                            <h3>电击小子</h3>
-                            百科
-                        </div>
-                        <div class="i2_contet" onclick="playMusic(0)">
-                            <h2>电击小子</h2>
-                            <p>《电击小子》是广州奥飞文化传播有限公司出品的系列动画，总共三部，分为《电击小子1》《电击小子2》和《电击小子3》[1]，三部加起来总共有78集，改编自山猫的同名漫画《电击小子》。2009年初，动画在中央电视台少儿频道首播；紧接着在2009年12月份到2010年的2月份，在中国四大卡通频道及近20家省级少儿频道安排全面播出。
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="i2l1">
-                        <div class="i2_date"
-                            onclick="window.location.href='https://tv.cctv.cn/2013/03/13/VIDA1363161478555346.shtml'">
-                            <h3>电击小子</h3>
-                            S1
-                        </div>
-                        <div class="i2_contet" onclick="playMusic(1)">
-                            <h2>首发，电击小子来了！！！</h2>
-                            <p class="ellipsis">小光是胡桃镇上一个乖巧的小学五年级学生，他一家为了得到一部最新出品的游戏机而参加了宾奇先生主持的有奖电视游戏节目。宾奇先生带他们一家到了一幢神秘鬼屋，但大屋内没有鬼魂，只有大坏蛋果仁大盗！
-                            </p>
-                        </div>
-                    </li>
-                    <li class="i2l2">
-                        <div class="i2_date"
-                            onclick="window.location.href='https://tv.cctv.cn/2013/03/13/VIDA1363161478555346.shtml'">
-                            <h3>电击小子</h3>
-                            S2
-                        </div>
-                        <div class="i2_contet" onclick="playMusic(2)">
-                            <h2>承接第1季的剧情，电击小子2来了！！！</h2>
-                            <p class="ellipsis">小光与卡比成功将路比送回未来，但是却遇到了新的敌人——沙宝拉查，讲述了电击小子与卡比一次次阻止了沙宝拉查的阴谋，沙宝拉查屡次捉拿卡比也不成功。最后竟然用自己的基地制造出一个巨大的武器，希望能对付电击小子和卡比，于是电击小子与沙宝拉查展开了一场世纪大战。
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="i2l3">
-                        <div class="i2_date"
-                            onclick="window.location.href='https://tv.cctv.cn/2016/04/27/VIDAneheeEIo2Jvh86oYSQQv160427.shtml'">
-                            <h3>电击小子</h3>
-                            S3
-                        </div>
-                        <div class="i2_contet" onclick="playMusic(3)">
-                            <h2>承接第二季剧情，《电击小子3》最新发布！！！</h2>
-                            <p class="ellipsis"> 电击小子继续守护着家园的安宁，然而他们不但要提升自己的能力，更要穿越时空，奋力阻止时空海盗“四圣团”作恶。在此过程中，电击小子和伙伴们凭着自身努力和各种神奇武器，实力不断提升。同时小光等人也渐渐领悟到成长的真谛，面对挫折永不放弃。电击小子等人经历了“龙城镇”与“桃花岛”的重重磨难后，一次又一次帮助人们化解危险，成功保卫了未来时空不受“四圣团”破坏。
-                            </p>
-                        </div>
-                    </li>
-
-                </ul>
-                <audio id="audioPlayer" controls style="display: none;">
-                    <source src="" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                    您的浏览器不支持音频控件。
-                </audio>
-
+    </div>  
+     
+        <div class="image-container">
+            <div class="image-map">
+                <img id="myImage1" src="1.jpg" alt="Your Image" onload="createClickableAreas('myImage1', 20, 1)">
+            </div>
+            <div class="image-map">
+                <img id="myImage2" src="2.jpg" alt="Your Image" onload="createClickableAreas('myImage2', 20, 2)">
+            </div>
+            <div class="image-map">
+                <img id="myImage3" src="3.jpg" alt="Your Image" onload="createClickableAreas('myImage3', 20, 3)">
             </div>
         </div>
-    </div>
-
-    <div id="controlPanel" onmousedown="startDrag(event)" onmouseup="stopDrag()">
-        <img id="playPauseIcon" src="./image/donghua.gif" alt="">
-        <!-- <input type="range" id="volumeSlider" min="0" max="0.7" step="0.01" value="0.4" oninput="adjustVolume(event)"> -->
-        <p class="close" onclick="hideControlPanel()">×</p>
-        <div id="songTitle">当前播放：无歌曲</div>
-
-        <div class="player-controls">
-            <button id="playPauseButton" onclick="togglePlayPause()">播放/暂停</button>
-
-            <span class="time current-time">0:00</span>
-            <div id="progressBar">
-                <div class="progress-indicator"></div>
-            </div>
-            <span class="time total-time">0:00</span>
-
-            <img src="./image/yl.webp" alt="Volume Icon" class="volume-icon" onclick="toggleSlider(event)">
-
-            <div class="volume-slider">
-                <input type="range" min="0" max="0.7" step="0.01" value="0.4" id="volumeSlider"
-                    oninput="adjustVolume(event)">
-            </div>
-        </div>
-    </div>
-
-    <div class="index4">
-        <div class="i4_title">
-            <div class="i4_title_h2">
-                <p>电击小子相关图片展示</p>
-                electroboy Related Image Display
-            </div>
-        </div>
-        <div class="div1280">
-            <div class="i4_lunbo">
-                <div id="sildes" style="overflow: hidden; position: relative;">
-                    <div class="container">
-                        <div class="control" style="overflow: hidden; position: relative; display: block;">
-                            <ul class="change" style="position: relative; width: 3390px; left: -1130px;">
-
-                                <!-- 1 -->
-                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
-                                    <div class="imgWrap">
-                                        <a href="" title="电击小子" target="_blank">
-                                            <img src="./image/xxg.webp" alt="电击小子">
-                                        </a>
-                                    </div>
-                                </li>
-                                <!-- 2 -->
-                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
-                                    <div class="imgWrap">
-                                        <a href="" title="电击小子" target="_blank">
-                                            <img src="./image/djxz.webp" alt="电击小子">
-                                        </a>
-                                    </div>
-                                </li>
-                                <!-- 3 -->
-                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
-                                    <div class="imgWrap">
-                                        <a href="" title="电击小子" target="_blank">
-                                            <img src="./image/lubi.webp" alt="电击小子">
-                                        </a>
-                                    </div>
-                                </li>
-                                <!-- 4 -->
-                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
-                                    <div class="imgWrap">
-                                        <a href="" title="电击小子" target="_blank">
-                                            <img src="./image/djxz01.webp" alt="电击小子">
-                                        </a>
-                                    </div>
-                                </li>
-                                <!-- 5 -->
-                                <li style="position: absolute; top: 0px; left: 1130px; z-index: 0; display: none;">
-                                    <div class="imgWrap">
-                                        <a href="" title="电击小子" target="_blank">
-                                            <img src="./image/djxz02.webp" alt="电击小子">
-                                        </a>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                            <a hidefocus="true" class="prev"><span>Prev</span></a>
-                            <a hidefocus="true" class="next"><span>Next</span></a>
-                        </div>
-
-                        <!-- 小图 -->
-                        <div class="thumbWrap">
-                            <div class="thumbCont">
-                                <ul id="produc_ul"
-                                    style="height: 544px; width: 100%; position: absolute; left: 0px; top: 2px;">
-                                    <li class="">
-                                        <img src="./image/xxg.webp" alt="电击小子图片加载失败咯">
-                                    </li>
-                                    <li class="">
-                                        <img src="./image/djxz.webp" alt="电击小子图片加载失败咯">
-                                    </li>
-                                    <li class="">
-                                        <img src="./image/lubi.webp" alt="电击小子图片加载失败咯">
-                                    </li>
-                                    <li class="">
-                                        <img src="./image/djxz01.webp" alt="电击小子图片加载失败咯">
-                                    </li>
-                                    <li class="">
-                                        <img src="./image/djxz02.webp" alt="电击小子图片加载失败咯">
-                                    </li>
-                                </ul>
-                            </div>
-                     
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+  
+    
     <img src="./image/djxz.gif" alt="跑步的电击小子" id="movingImage" onclick="toggleMusic()">
     <div class="bottom">
         <a
@@ -333,7 +146,161 @@
         <p id="year"></p>
     </div>
 
+    <script>
+        // 电击小子视频源路径，视频来自cctv
+        // 使用python程序自动匹配爬取
+        var urls = [
+            // 电击小子1
+            [
+                "https://tv.cctv.com/2012/12/29/VIDE1385969236772670.shtml",
+                "https://tv.cctv.com/2012/12/29/VIDE1385969239443751.shtml",
+                "https://tv.cctv.com/2012/12/29/VIDE1385969235099504.shtml",
+                "https://tv.cctv.com/2012/12/29/VIDE1385969236537643.shtml",
+                "https://tv.cctv.com/2012/12/29/VIDE1385969239557764.shtml",
+                "https://tv.cctv.com/2012/12/30/VIDE1385969235734573.shtml",
+                "https://tv.cctv.com/2012/12/30/VIDE1385969235604560.shtml",
+                "https://tv.cctv.com/2012/12/30/VIDE1385969240715894.shtml",
+                "https://tv.cctv.com/2012/12/30/VIDE1385969236006601.shtml",
+                "https://tv.cctv.com/2013/01/04/VIDE1385969235367532.shtml",
+                "https://tv.cctv.com/2013/01/04/VIDE1385969239896803.shtml",
+                "https://tv.cctv.com/2013/01/04/VIDE1385969236412630.shtml",
+                "https://tv.cctv.com/2013/01/04/VIDE1385969236137615.shtml",
+                "https://tv.cctv.com/2013/01/06/VIDE1385969240252842.shtml",
+                "https://tv.cctv.com/2013/01/06/VIDE1385969236651656.shtml",
+                "https://tv.cctv.com/2013/01/06/VIDE1385969235485545.shtml",
+                "https://tv.cctv.com/2013/01/06/VIDE1385969240022816.shtml",
+                "https://tv.cctv.com/2013/01/06/VIDE1385969235245519.shtml",
+                "https://tv.cctv.com/2013/01/07/VIDE1385969240369855.shtml",
+                "https://tv.cctv.com/2013/01/07/VIDE1385969240133829.shtml",
+                "https://tv.cctv.com/2013/01/07/VIDE1385969235849586.shtml",
+                "https://tv.cctv.com/2013/01/07/VIDE1385969240598881.shtml",
+                "https://tv.cctv.com/2013/01/12/VIDE1364366898090830.shtml",
+                "https://tv.cctv.com/2013/01/12/VIDE1364366896597786.shtml",
+                "https://tv.cctv.com/2013/01/12/VIDE1364366897729819.shtml",
+                "https://tv.cctv.com/2013/01/12/VIDE1364366897346808.shtml",
+            ],
+            // 电击小子2
+            [
+                "https://tv.cctv.com/2010/09/13/VIDE1363162157792162.shtml",
+                "https://tv.cctv.com/2010/09/14/VIDE1363162145876857.shtml",
+                "https://tv.cctv.com/2010/09/15/VIDE1363162151489938.shtml",
+                "https://tv.cctv.com/2010/09/16/VIDE1363162191085778.shtml",
+                "https://tv.cctv.com/2010/09/17/VIDE1363162140364739.shtml",
+                "https://tv.cctv.com/2010/09/19/VIDE1363162155031103.shtml",
+                "https://tv.cctv.com/2010/09/19/VIDE1363162142200785.shtml",
+                "https://tv.cctv.com/2010/09/20/VIDE1363162161883234.shtml",
+                "https://tv.cctv.com/2010/09/21/VIDE1365308684296874.shtml",
+                "https://tv.cctv.com/2010/09/25/VIDE1363162161253216.shtml",
+                "https://tv.cctv.com/2010/09/25/VIDE1363162162527247.shtml",
+                "https://tv.cctv.com/2010/09/24/VIDE1363162150891929.shtml",
+                "https://tv.cctv.com/2010/09/25/VIDE1363162175191449.shtml",
+                "https://tv.cctv.com/2010/09/26/VIDE1363162147095875.shtml",
+                "https://tv.cctv.com/2010/09/27/VIDE1363162158402171.shtml",
+                "https://tv.cctv.com/2010/09/28/VIDE1363162139752724.shtml",
+                "https://tv.cctv.com/2010/09/29/VIDE1363162140965755.shtml",
+                "https://tv.cctv.com/2010/09/30/VIDE1363162180203607.shtml",
+                "https://tv.cctv.com/2010/10/01/VIDE1363162146477866.shtml",
+                "https://tv.cctv.com/2010/10/02/VIDE1363162141601771.shtml",
+                "https://tv.cctv.com/2010/10/03/VIDE1363162176419484.shtml",
+                "https://tv.cctv.com/2010/10/04/VIDE1363162182009634.shtml",
+                "https://tv.cctv.com/2010/10/05/VIDE1363162178804589.shtml",
+                "https://tv.cctv.com/2010/10/06/VIDE1363162191672787.shtml",
+                "https://tv.cctv.com/2010/10/07/VIDE1363162172419404.shtml",
+                "https://tv.cctv.com/2010/10/08/VIDE1363162142819800.shtml"
 
+            ],
+            // 电击小子3
+            [
+                "https://tv.cctv.com/2015/08/03/VIDE1438613651034754.shtml",
+                "https://tv.cctv.com/2015/08/03/VIDE1438614376806820.shtml",
+                "https://tv.cctv.com/2015/08/03/VIDE1438614738164261.shtml",
+                "https://tv.cctv.com/2015/08/03/VIDE1438614376958835.shtml",
+                "https://tv.cctv.com/2015/08/04/VIDE1438703296506869.shtml",
+                "https://tv.cctv.com/2015/08/04/VIDE1438703113470557.shtml",
+                "https://tv.cctv.com/2015/08/04/VIDE1438698076267778.shtml",
+                "https://tv.cctv.com/2015/08/04/VIDE1438698076513801.shtml",
+                "https://tv.cctv.com/2015/08/05/VIDE1438783960015160.shtml",
+                "https://tv.cctv.com/2015/08/05/VIDE1438783960293191.shtml",
+                "https://tv.cctv.com/2015/08/05/VIDE1438784121263320.shtml",
+                "https://tv.cctv.com/2015/08/05/VIDE1438783960161176.shtml",
+                "https://tv.cctv.com/2015/08/06/VIDE1438871226761362.shtml",
+                "https://tv.cctv.com/2015/08/06/VIDE1438871226934378.shtml",
+                "https://tv.cctv.com/2015/08/06/VIDE1438871227094394.shtml",
+                "https://tv.cctv.com/2015/08/06/VIDE1438871226596346.shtml",
+                "https://tv.cctv.com/2015/08/07/VIDE1438960510306340.shtml",
+                "https://tv.cctv.com/2015/08/07/VIDE1438960510171327.shtml",
+                "https://tv.cctv.com/2015/08/07/VIDE1438960689434498.shtml",
+                "https://tv.cctv.com/2015/08/07/VIDE1438960689575511.shtml",
+                "https://tv.cctv.com/2015/08/08/VIDE1439044571217417.shtml",
+                "https://tv.cctv.com/2015/08/08/VIDE1439044571365433.shtml",
+                "https://tv.cctv.com/2015/08/09/VIDE1439127372285669.shtml",
+                "https://tv.cctv.com/2015/08/09/VIDE1439127551272981.shtml",
+                "https://tv.cctv.com/2015/08/09/VIDE1439127551440996.shtml",
+                "https://tv.cctv.com/2015/08/09/VIDE1439131509014193.shtml",
+            ]
+        ];
+
+        function createClickableAreas(imgId, topOffset, groupIndex) {
+            var img = document.getElementById(imgId);
+            var imgHeight = img.naturalHeight - topOffset; // 减去顶部的白边高度
+            var areaHeight = imgHeight / 26;
+
+            console.log("图片的实际高度为：" + imgHeight + "像素");
+            console.log("每个区域的高度为：" + areaHeight + "像素");
+
+            // 电击小子有26集，所以循环26次
+            for (var i = 0; i < 26; i++) {
+                var area = document.createElement("div");
+                area.className = "clickable-area";
+                area.style.top = (topOffset + i * areaHeight) + "px"; // 从顶部白边下方开始
+                area.style.height = areaHeight + "px";
+                area.setAttribute("onclick", "openUrl(" + groupIndex + "," + (i + 1) + ")");
+                area.setAttribute("data-index", i); // 添加索引数据属性
+                img.parentNode.appendChild(area);
+            }
+        }
+
+        function openUrl(groupIndex, index) {
+            // 根据组索引和位置索引打开对应的URL
+            var url = urls[groupIndex - 1][index - 1]; // 索引从0开始，需要减1
+            console.log("你点击了电击小子第" + groupIndex + "季的第" + index + "集" + "，已为您跳转到cctv，URL为：" + url);
+            window.open(url);
+        }
+    </script>
+	<script>
+        fetch('https://api.wwang.pw/comment/music?offset=0&limit=30&id=1813134076')
+            .then(response => response.json())
+            .then(data => {
+                const comments = data.comments;
+                const commentsContainer = document.getElementById('comments');
+
+                comments.forEach(comment => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.classList.add('comment-container');
+                    commentDiv.innerHTML = `
+                        <img src="${comment.user.avatarUrl}" alt="User Avatar" class="comment-avatar">
+                            <div class="comment-details">
+                                <p>${comment.user.nickname}</p>
+                                <p> ${comment.content}</p>
+                                <div class="like-time">
+                                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                                        <div>
+                                            <span>${new Date(comment.time).toLocaleString()}</span>
+                                        </div> 
+                                        <div>
+                                            <img src="./2.png" alt="Like Icon" class="like-icon">
+                                            <span> ${comment.likedCount}</span>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    commentsContainer.appendChild(commentDiv);
+                });
+            });
+    </script>
     <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
     <script src="js/uaredirect1.js" type="text/javascript"></script>
@@ -369,13 +336,6 @@
                     zoomLevel = 1 - i * 0.01;
                 }
             }
-
-            // 更加精细的步进
-            // for (var i = 0; i <= 500; i++) {
-            //     if (percentage < (100 - i * 0.1)) {
-            //         zoomLevel = 1 - i * 0.001;
-            //     }
-            // }
 
             // 设置缩放比例
             document.body.style.zoom = zoomLevel;
@@ -531,63 +491,6 @@
 
     </script>
 
-    <!-- <script>
-        // 图片路径数组
-        let imagess = [
-            "https://bkimg.cdn.bcebos.com/pic/71cf3bc79f3df8dc5ac58d14cd11728b461028be?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,h_336",
-            "https://img2.baidu.com/it/u=2574659601,275520977&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=600",
-            "https://img2.baidu.com/it/u=1566050002,1701599798&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=662",
-            "https://img0.baidu.com/it/u=844526588,320119096&fm=253&fmt=auto&app=138&f=JPEG?w=448&h=672"
-
-        ];
-
-        let currentImageIndex = 0; // 当前显示的图片索引
-        let maxRetryCount = 3; // 最大尝试次数
-        let failedimagess = []; // 存储加载失败的图片索引
-        let imageInterval;
-
-        function changeImage() {
-            // 跳过加载失败的图片
-            while (failedimagess.includes(currentImageIndex)) {
-                currentImageIndex = (currentImageIndex + 1) % imagess.length;
-            }
-
-            let img = new Image();
-            let timeoutId;
-
-            img.onload = function () {
-                clearTimeout(timeoutId); // 清除加载超时的定时器
-                document.getElementById('slideshowImg').src = imagess[currentImageIndex]; // 切换图片
-                failedimagess = failedimagess.filter(index => index !== currentImageIndex); // 移除加载成功的图片索引
-                currentImageIndex = (currentImageIndex + 1) % imagess.length; // 更新索引
-            };
-            img.onerror = function () {
-                clearTimeout(timeoutId); // 清除加载超时的定时器
-                failedimagess.push(currentImageIndex); // 将加载失败的图片索引加入数组
-                console.log("图片加载失败，标记并跳过：" + currentImageIndex);
-                currentImageIndex = (currentImageIndex + 1) % imagess.length; // 更新索引到下一张图片
-            };
-
-            img.src = imagess[currentImageIndex]; // 加载图片
-
-            // 设置加载超时的定时器
-            timeoutId = setTimeout(function () {
-                img.src = ""; // 中断加载
-                console.log("图片加载超时，标记并跳过：" + currentImageIndex);
-                failedimagess.push(currentImageIndex); // 将加载超时的图片索引加入数组
-                currentImageIndex = (currentImageIndex + 1) % imagess.length; // 更新索引到下一张图片
-            }, 2000);
-        }
-
-        function startSlideshow() {
-            changeImage(); // 初始加载第一张图片
-            imageInterval = setInterval(function () {
-                changeImage(); // 每3秒切换一次图片
-            }, 2000);
-        }
-
-        startSlideshow();
-    </script> -->
 
     <script>
         var currentDate = new Date();
@@ -721,28 +624,12 @@
                 name: '雷霆电击光'
             },
             {
-                src: './audio/变身V1.0.mp3',
-                name: '变身V1.0'
+                src: './audio/变身.mp3',
+                name: '变身'
             },
             {
-                src: './audio/变身V1.1.mp3',
-                name: '变身V1.1'
-            },
-            {
-                src: './audio/变身V3.0.mp3',
-                name: '变身V3.0'
-            },
-            {
-                src: './audio/变身V3.1.mp3',
-                name: '变身V3.1'
-            },
-            {
-                src: './audio/介绍V3.0.mp3',
-                name: '介绍V3.0'
-            },
-            {
-                src: './audio/介绍V3.1.mp3',
-                name: '介绍V3.1'
+                src: './audio/变身2.mp3',
+                name: '变身V2.0'
             },
         ];
 
@@ -762,7 +649,7 @@
             var randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * audioFiles.length);
-            } while (randomIndex === lastPlayedIndex || (audioFiles[randomIndex].name !== '火星大力拳' && audioFiles[randomIndex].name !== '雷霆电击光' && audioFiles[randomIndex].name !== '变身V1.0' && audioFiles[randomIndex].name !== '变身V1.1' && audioFiles[randomIndex].name !== '变身V3.0' && audioFiles[randomIndex].name !== '变身V3.1' && audioFiles[randomIndex].name !== '介绍V3.0' && audioFiles[randomIndex].name !== '介绍V3.1'));
+            } while (randomIndex === lastPlayedIndex || (audioFiles[randomIndex].name !== '火星大力拳' && audioFiles[randomIndex].name !== '雷霆电击光' && audioFiles[randomIndex].name !== '变身' && audioFiles[randomIndex].name !== '变身V2.0'));
 
             lastPlayedIndex = randomIndex;
 
