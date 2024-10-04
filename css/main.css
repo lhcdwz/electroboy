@@ -210,7 +210,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #707070;
+    color: #1702fb;
 }
 
 @font-face {
@@ -342,7 +342,6 @@ p {
 .top_ul a {
     display: block;
     width: 100%;
-    height: 100%;
 }
 
 .top_ul>li {
@@ -362,8 +361,15 @@ p {
 }
 
 .top_ul>li:hover {
-    background: url(../image/mk_bg.png) no-repeat center;
+    background: url(../image/mk_bg.webp) no-repeat center;
     color: #fff;
+}
+
+.top_ul .qq:hover:hover {
+    background: url(../image/11.jpg) no-repeat center;
+    color: #00b9da; 
+    background-size: cover; /* 确保背景图片覆盖整个元素 */
+    height: 200px;
 }
 
 .top_ul1 {
@@ -419,7 +425,7 @@ p {
 }
 
 .menu_cur {
-    background: url(../image/mk_bg.png) no-repeat center;
+    background: url(../image/mk_bg.webp) no-repeat center;
     color: #fff;
 }
 
@@ -507,6 +513,35 @@ p {
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+.i1_title2 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    padding-top: 60px;
+    /* position: absolute; */
+    z-index: 50;
+    background: url(../image/i1_bg.png) repeat-x top;
+    height: 142px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.i1_title2_h2 {
+    position: absolute;
+    /* top: 60px; */
+    left: 47%;
+    margin-left: -200px;
+    width: 300px;
+    height: 90px;
+    /* background: url(../image/i1_title.png) no-repeat left center; */
+    padding-left: 60px;
+}
+
+.i1_title2_h2 p {
+    font-size: 50px;
 }
 
 .i1_title_h2 {
