@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ群信息展示</title>
+    <style>
+        .group-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 430px;
+            height: 350px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: move;
+            /* display: none; */
+             /* 默认隐藏 */
+            border-radius: 10px;
+            z-index: 10;
+        }
+        .group-header {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .group-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .group-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .group-header p {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #666;
+        }
+        .group-info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .group-info .left {
+            width: 25%;
+            /* text-align: right; */
+            margin-right: 10px;
+        }
+        .group-info .right {
+            width: 75%;
+        }
+
+
+.group-info .left p {
+
+    font-size: 25px;
+    color: #4a4a4a76;
+}
+        .group-info p {
+            margin: 10px 0;
+            font-size: 25px;
+            color: #666;
+        }
+        .group-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .group-actions button {
+            padding: 5px 10px;
+            cursor: pointer;
+            position: relative;
+    top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff4040;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #aaa;
+        }
+        .close-button:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<button onclick="showGroupCard()">显示群信息</button>
+
+<div class="group-card" id="groupCard">
+    <span class="close-button" onclick="hideGroupCard()">&times;</span>
+    <div class="group-header">
+        <img src="./djxz海报.jpg" alt="QQ群头像">
+        <div>
+            <h2>电击小子交流群</h2>
+            <p>QQ群号码: 364310663</p>
+        </div>
+    </div>
+    <div class="group-info">
+        <div class="left">
+            <p>备注:</p>
+            <p>介绍:</p>
+            <p>群公告:</p>
+        </div>
+        <div class="right">
+            <p>电击小子</p>
+            <p>我们的最终目标是</p>
+            
+            <!-- <p>我们的最终目标是让重振电击小子并将其传播至世界所有角落。</p> -->
+            <p>请遵守群规，文明交流。</p>
+        </div>
+    </div>
+    <div class="group-actions">
+        <button onclick="window.location.href='https://qm.qq.com/cgi-bin/qm/qr?k=123456789'">跳转</button>
+        <button onclick="copyToClipboard('123456789')">复制</button>
+    </div>
+</div>
+<script>
+    function copyToClipboard(text) {
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert('群号码已复制到剪贴板');
+    }
+
+    function showGroupCard() {
+        document.getElementById('groupCard').style.display = 'block';
+    }
+
+    function hideGroupCard() {
+        document.getElementById('groupCard').style.display = 'none';
+    }
+</script>
+</body>
+</html>
