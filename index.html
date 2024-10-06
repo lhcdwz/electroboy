@@ -84,11 +84,11 @@
                 <li><a href="javascript:void();">QQ群</a>
                     <ul class="t_ul">
 
-                        <li><a href="https://qq.electroboy.cn">电击小子交流群</a>
+                        <li><p onclick="showGroupCard()">电击小子交流群</p>
                             <div class="t_line"></div>
                         </li>
                         
-                        <li><p>QQ群:364310663</p></li>
+                        <li><p onclick="showGroupCard()">QQ群:364310663</p></li>
                     
                     </ul>
                 </li>
@@ -323,17 +323,174 @@
             href="">关于电击小子</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a
             href="http://qq.electroboy.cnl">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank"
-            href="http://qq.electroboy.cn">加入我们</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank"
-            href="">ele电击</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href="">电击小子网站</a>
+        <a target="_blank" onclick="showGroupCard()">加入我们的qq群</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a target="_blank" href="">电击小子网站</a>
 
         <img src="./image/djxzlogo.webp">
         <p id="year"></p>
     </div>
 
+    <style>
+        .group-card {
+            z-index: 999;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 430px;
+            height: 350px;
+            background-color: #fff;
+            padding: 10px;
+            border: 10px solid #ffb84ede;
+            cursor: move;
+            /* display: none; */
+            /* 默认隐藏 */
+            border-radius: 10px;
+        }
 
+        .group-header {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .group-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .group-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .group-header p {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .group-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .group-info .left {
+            width: 25%;
+            /* text-align: right; */
+            margin-right: 10px;
+        }
+
+        .group-info .right {
+            width: 75%;
+        }
+
+
+        .group-info .left p {
+
+            font-size: 25px;
+            color: #4a4a4a76;
+        }
+
+        .group-info p {
+            margin: 10px 0;
+            font-size: 25px;
+            color: #666;
+        }
+
+        .group-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .group-actions button {
+            padding: 5px 10px;
+            cursor: pointer;
+            position: relative;
+            top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff4040;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .3s
+        }
+
+        .close-button {
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 50px;
+            color: #aaa;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <button onclick="showGroupCard()">显示群信息</button> -->
+
+    <div class="group-card" id="groupCard">
+        <span class="close-button" onclick="hideGroupCard()">&times;</span>
+        <div class="group-header">
+            <img src="./djxz海报.jpg" alt="QQ群头像">
+            <div>
+                <h2>电击小子交流群</h2>
+                <p>QQ群号码: 364310663</p>
+            </div>
+        </div>
+        <div class="group-info">
+            <div class="left">
+                <p>备注:</p>
+                <p>介绍:</p>
+                <p>群公告:</p>
+            </div>
+            <div class="right">
+                <p>电击小子</p>
+                <p>一起讨论电击小子相关内容</p>
+                <!-- <p>我们的最终目标是让重振电击小子并将其传播至世界所有角落。</p> -->
+                <p>请遵守群规，文明交流</p>
+            </div>
+        </div>
+        <div class="group-actions">
+            <button onclick="window.location.href='https://qq.electroboy.cn'">跳转到QQ</button>
+            <button onclick="copyToClipboard('364310663')">复制群号码</button>
+        </div>
+    </div>
+    <script>
+        function copyToClipboard(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('群号码已复制到剪贴板');
+        }
+
+        function showGroupCard() {
+            document.getElementById('groupCard').style.display = 'block';
+        }
+
+        function hideGroupCard() {
+            document.getElementById('groupCard').style.display = 'none';
+        }
+    </script>
     <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
     <script src="js/uaredirect1.js" type="text/javascript"></script>
